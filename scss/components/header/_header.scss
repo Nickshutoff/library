@@ -1,0 +1,39 @@
+.header {
+    background-color: $dark;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    line-height: 50px;
+    color: $white;
+
+    span h1 {
+        font-family: $forum;
+        font-size: 30px;
+        line-height: 167%;
+        letter-spacing: 0.02em;
+    }
+    
+    div {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+
+        ul {
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+        
+            a {
+                font-family: $inter;
+                font-size: 20px;
+                color: $white;
+                text-decoration: none;
+                line-height: 220%;
+            }
+        }
+        div:hover {
+            cursor: pointer;
+        }
+    }
+}
