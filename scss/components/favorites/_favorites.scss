@@ -1,10 +1,8 @@
 .favorites {
     background-color: $white;
     padding: 20px 20px 40px;
-    div:first-child {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    span {
+        text-align: center;
         @include section-heading;
     }
     .radiobox__wrapper {
@@ -28,5 +26,14 @@
             }
         }
     }
-    
+    .card-container{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, auto);
+        column-gap: 260px;
+        row-gap: 40px;
+        .card {  
+            border: 1px $black solid;
+        }
+    }
 }
