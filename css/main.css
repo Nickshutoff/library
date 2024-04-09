@@ -222,4 +222,36 @@ table {
   font-weight: bold;
   font-size: 20px;
   line-height: 120%;
+}
+.favorites .radiobox__wrapper-field {
+  display: flex;
+  align-items: center;
+}
+.favorites .radiobox__wrapper-field legend {
+  margin-bottom: 40px;
+}
+.favorites .radiobox__wrapper-field input[type=radio] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: 2px solid #000;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  position: relative;
+  margin-right: 20px;
+}
+.favorites .radiobox__wrapper-field input[type=radio]:checked::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 7px;
+  height: 7px;
+  background-color: #000;
+  border-radius: 50%;
+}
+.favorites .radiobox__wrapper-field label {
+  margin-right: 90px;
 }/*# sourceMappingURL=main.css.map */
