@@ -1,0 +1,12 @@
+@mixin section-heading {
+    h2 {
+      font-family: $forum;
+      font-size: 40px;
+      line-height: 100%;
+      letter-spacing: 0.05em;
+    }
+    hr {
+      margin-top: 20px;
+      width: 50px;
+    }
+}

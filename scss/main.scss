@@ -2,6 +2,9 @@
 @import "./helpers/reset";
 @import "./helpers/common";
 @import "./helpers/variables";
+@import "./helpers/mixins";
 
 @import "./components/header/header";
 @import "./components/welcome/welcome";
+@import "./components/about/about";
+@import "./components/favorites/favorites";

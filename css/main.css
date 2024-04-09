@@ -62,13 +62,14 @@ table {
   box-sizing: border-box;
 }
 
-.header, .welcome {
+.header, .welcome, .about,
+.favorites {
   max-width: 1440px;
   margin: 0 auto;
 }
 
 .header {
-  background-color: #0C0C0E;
+  background-color: #000000;
   padding: 20px;
   display: flex;
   flex-direction: row;
@@ -105,22 +106,21 @@ table {
 
 .welcome {
   position: relative;
-  width: 1440px;
   height: 600px;
   background-image: url("../img/welcome.png");
   background-position: center center;
   background-size: cover;
-  background-repeat: no-repeat;
 }
-.welcome img {
+.welcome div:first-child {
   position: absolute;
   z-index: 5;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 50%;
+  background-image: linear-gradient(to bottom, rgb(12, 12, 14) 0%, rgba(12, 12, 14, 0) 100%);
 }
-.welcome div {
+.welcome div:last-child {
   position: absolute;
   z-index: 10;
   top: 220px;
@@ -131,7 +131,7 @@ table {
   justify-content: center;
   align-items: center;
 }
-.welcome div h2 {
+.welcome div:last-child h2 {
   color: #FFFFFF;
   font-family: "Forum", sans-serif;
   font-size: 40px;
@@ -139,4 +139,87 @@ table {
   letter-spacing: 0.075em;
   text-transform: uppercase;
   text-align: center;
+}
+
+.about {
+  background-color: #FFFFFF;
+  padding: 20px 20px 40px;
+}
+.about div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.about div h2 {
+  font-family: "Forum", sans-serif;
+  font-size: 40px;
+  line-height: 100%;
+  letter-spacing: 0.05em;
+}
+.about div hr {
+  margin-top: 20px;
+  width: 50px;
+}
+.about div h3 {
+  margin-top: 32px;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  line-height: 200%;
+}
+.about .carousel {
+  margin-top: 20px;
+}
+.about .carousel__gallery {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+}
+.about .carousel__gallery img {
+  display: flex;
+  overflow-x: hidden;
+}
+.about .carousel__controll {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+}
+.about .carousel__controll button {
+  background-color: #000000;
+  border: none;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+.about .carousel__controll button:active:hover {
+  background-color: #BB945F;
+}
+
+.favorites {
+  background-color: #FFFFFF;
+  padding: 20px 20px 40px;
+}
+.favorites div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.favorites div:first-child h2 {
+  font-family: "Forum", sans-serif;
+  font-size: 40px;
+  line-height: 100%;
+  letter-spacing: 0.05em;
+}
+.favorites div:first-child hr {
+  margin-top: 20px;
+  width: 50px;
+}
+.favorites .radiobox__wrapper {
+  margin-top: 40px;
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 120%;
 }/*# sourceMappingURL=main.css.map */
