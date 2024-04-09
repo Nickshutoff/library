@@ -1,11 +1,9 @@
 .welcome {
     position: relative;
-    width: 1440px;
     height: 600px;
     background-image: url('../img/welcome.png');
     background-position: center center;
     background-size: cover;
-    background-repeat: no-repeat;
     img {
         position: absolute;
         z-index: 5;
