@@ -252,6 +252,7 @@ table {
   margin-right: 90px;
 }
 .favorites .card-container {
+  margin-top: 40px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, auto);
@@ -259,6 +260,69 @@ table {
        column-gap: 260px;
   row-gap: 40px;
 }
-.favorites .card-container .card {
+.favorites .card-container__item {
+  display: grid;
+  grid-template-columns: 69% 31%;
+  grid-template-rows: 1fr;
+  width: 550px;
   border: 1px #000000 solid;
+  padding: 15px;
+  position: relative;
+}
+.favorites .card-container__item__info-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.favorites .card-container__item__info {
+  font-family: "Inter", sans-serif;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.favorites .card-container__item__head {
+  font-family: "Forum", sans-serif;
+  font-size: 20px;
+  line-height: 40px;
+  letter-spacing: 2px;
+}
+.favorites .card-container__item hr {
+  border: none;
+  height: 1px;
+  background-color: #BB945F;
+  position: absolute;
+  left: 15px;
+  width: 60px;
+}
+.favorites .card-container__item__title, .favorites .card-container__item__text {
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+.favorites .card-container__item__title h5, .favorites .card-container__item__text h5 {
+  text-transform: uppercase;
+}
+.favorites .card-container__item__text {
+  font-weight: normal;
+}
+.favorites .card-container__item__btn {
+  margin-top: 15px;
+  width: 75px;
+  height: 30px;
+  border: 1px #000000 solid;
+  color: #000000;
+  font-weight: bold;
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 1px;
+}
+.favorites .card-container__item__image {
+  position: relative;
+  align-self: end;
+  width: 200px;
+  height: 300px;
+  right: -16px;
+  bottom: -17px;
 }/*# sourceMappingURL=main.css.map */
