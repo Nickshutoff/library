@@ -1,9 +1,11 @@
 .about {
     background-color: $white;
     padding: 20px 20px 40px;
+
     span {
         text-align: center;
         @include section-heading;
+
         h3 {
             margin-top: 32px;
             font-family: $inter;
@@ -11,6 +13,7 @@
             line-height: 200%;
         }
     }
+
     .carousel {
         margin-top: 20px;
 
@@ -37,7 +40,6 @@
                 border-radius: 50%;
                 width: 16px;
                 height: 16px;
-                // margin: 0 10px;
                 
                 cursor: pointer;
                 &:hover {

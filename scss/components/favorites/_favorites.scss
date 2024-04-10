@@ -1,39 +1,120 @@
 .favorites {
     background-color: $white;
     padding: 20px 20px 40px;
+
     span {
         text-align: center;
         @include section-heading;
     }
+
     .radiobox__wrapper {
         margin-top: 40px;
         font-family: $inter;
         font-weight: bold;
         font-size: 20px;
         line-height: 120%;
+
         &-field {
             display: flex;
             align-items: center;
+
             legend {
                 margin-bottom: 40px;
             }
+
             input[type="radio"] {
                 @include custom-radio;
                 margin-right: 20px;
             }
+
             label {
                 margin-right: 90px;
             }
         }
     }
-    .card-container{
+
+    .card-container {
+        margin-top: 40px;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(2, auto);
         column-gap: 260px;
         row-gap: 40px;
-        .card {  
+      
+        &__item {
+            display: grid;
+            grid-template-columns: 69% 31%;
+            grid-template-rows: 1fr;
+            width: 550px;
             border: 1px $black solid;
+            padding: 15px;
+            position: relative;
+      
+            &__info-wrapper {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+      
+            &__info {
+                font-family: $inter;
+                gap: 20px;
+                display: flex;
+                flex-direction: column;
+            }
+      
+            &__head {
+                font-family: $forum;
+                font-size: 20px;
+                line-height: 40px;
+                letter-spacing: 2px;
+            }
+      
+            hr {
+                border: none;
+                height: 1px;
+                background-color: $sand;
+                position: absolute;
+                left: 15px;
+                width: 60px;
+            }
+      
+            &__title,
+            &__text {
+                font-weight: bold;
+                font-size: 15px;
+                line-height: 40px;
+                letter-spacing: 2px;
+                text-transform: capitalize;
+                h5 {
+                    text-transform: uppercase;
+                }
+            }
+      
+            &__text {
+                font-weight: normal;
+            }
+      
+            &__btn {
+                margin-top: 15px;
+                width: 75px;
+                height: 30px;
+                border: 1px $black solid;
+                color: $black;
+                font-weight: bold;
+                font-size: 10px;
+                line-height: 12px;
+                letter-spacing: 1px;
+            }
+
+            &__image {
+                position: relative;
+                align-self: end;
+                width: 200px;
+                height: 300px;
+                right: -16px;
+                bottom: -17px;
+            }
         }
     }
 }
