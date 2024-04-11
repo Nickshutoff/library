@@ -1,0 +1,71 @@
+.coffeeshop {
+    background-color: $white;
+    padding: 20px 20px 40px;
+    width: 100%;
+    
+    &__title {
+        text-align: center;
+        @include section-heading;
+    }
+
+    &__description p{
+        margin-top: 40px;
+        text-align: center;
+        font: {
+            family: $inter;
+            size: 20px;
+        }
+        line-height: 40px;
+        letter-spacing: 2px;
+    }
+
+    &__prices {
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 480px;
+
+        &__drinks {
+            align-items: flex-start;
+        }
+
+        &__food {
+            align-items: flex-end;
+        }
+
+        &__drinks,
+        &__food {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            font-family: $forum;
+            line-height: 40px;
+            letter-spacing: 2px;
+
+            &-title {
+                font-size: 40px;
+                color: $sand;
+            }
+
+            &-item {
+                font-size: 20px;
+                color: $black;
+                display: flex;
+                width: 100%;
+                align-items: center;
+
+                p:first-child {
+                    font-family: $inter;
+                }
+
+                hr {
+                    width: 100px;
+                    background-color: $sand;
+                    height: 1px;
+                    border: none;
+                    margin-right: 60px;
+                }
+            }
+        }
+    }
+}
