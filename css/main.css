@@ -63,7 +63,7 @@ table {
 }
 
 .header, .welcome, .about,
-.favorites {
+.favorites, .coffeeshop {
   max-width: 1440px;
   margin: 0 auto;
 }
@@ -325,4 +325,73 @@ table {
   height: 300px;
   right: -16px;
   bottom: -17px;
+}
+
+.coffeeshop {
+  background-color: #FFFFFF;
+  padding: 20px 20px 40px;
+  width: 100%;
+}
+.coffeeshop__title {
+  text-align: center;
+}
+.coffeeshop__title h2 {
+  font-family: "Forum", sans-serif;
+  font-size: 40px;
+  line-height: 100%;
+  letter-spacing: 0.05em;
+}
+.coffeeshop__title hr {
+  margin-top: 20px;
+  width: 50px;
+}
+.coffeeshop__description p {
+  margin-top: 40px;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  line-height: 40px;
+  letter-spacing: 2px;
+}
+.coffeeshop__prices {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  -moz-column-gap: 480px;
+       column-gap: 480px;
+}
+.coffeeshop__prices__drinks {
+  align-items: flex-start;
+}
+.coffeeshop__prices__food {
+  align-items: flex-end;
+}
+.coffeeshop__prices__drinks, .coffeeshop__prices__food {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  font-family: "Forum", sans-serif;
+  line-height: 40px;
+  letter-spacing: 2px;
+}
+.coffeeshop__prices__drinks-title, .coffeeshop__prices__food-title {
+  font-size: 40px;
+  color: #BB945F;
+}
+.coffeeshop__prices__drinks-item, .coffeeshop__prices__food-item {
+  font-size: 20px;
+  color: #000000;
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+.coffeeshop__prices__drinks-item p:first-child, .coffeeshop__prices__food-item p:first-child {
+  font-family: "Inter", sans-serif;
+}
+.coffeeshop__prices__drinks-item hr, .coffeeshop__prices__food-item hr {
+  width: 100px;
+  background-color: #BB945F;
+  height: 1px;
+  border: none;
+  margin-right: 60px;
 }/*# sourceMappingURL=main.css.map */
