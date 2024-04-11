@@ -1,0 +1,53 @@
+.contacts {
+    background-color: $white;
+    padding: 20px 20px 40px;
+    line-height: 40px;
+    letter-spacing: 2px;
+    font: {
+        family: $inter;
+        size: 20px;
+    }
+
+    &__title {
+        text-align: center;
+        @include section-heading;
+    }
+
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 40px;
+
+        &__text {             
+            gap: 40px;
+            flex-direction: column;
+            display: flex;
+
+            &-title {
+                font-weight: bold
+            }
+
+            &-phones,
+            &-staff {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            &-staff {
+                font-weight: bold;
+                span {
+                    font-weight: normal;
+                }
+            }
+        }
+
+        &__map {
+            img {
+                width: 696px;
+                height: 414px;
+            }
+        }
+    }
+
+}

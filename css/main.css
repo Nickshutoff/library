@@ -63,7 +63,8 @@ table {
 }
 
 .header, .welcome, .about,
-.favorites, .coffeeshop {
+.favorites, .coffeeshop,
+.contacts {
   max-width: 1440px;
   margin: 0 auto;
 }
@@ -394,4 +395,54 @@ table {
   height: 1px;
   border: none;
   margin-right: 60px;
+}
+
+.contacts {
+  background-color: #FFFFFF;
+  padding: 20px 20px 40px;
+  line-height: 40px;
+  letter-spacing: 2px;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+}
+.contacts__title {
+  text-align: center;
+}
+.contacts__title h2 {
+  font-family: "Forum", sans-serif;
+  font-size: 40px;
+  line-height: 100%;
+  letter-spacing: 0.05em;
+}
+.contacts__title hr {
+  margin-top: 20px;
+  width: 50px;
+}
+.contacts__wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+.contacts__wrapper__text {
+  gap: 40px;
+  flex-direction: column;
+  display: flex;
+}
+.contacts__wrapper__text-title {
+  font-weight: bold;
+}
+.contacts__wrapper__text-phones, .contacts__wrapper__text-staff {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.contacts__wrapper__text-staff {
+  font-weight: bold;
+}
+.contacts__wrapper__text-staff span {
+  font-weight: normal;
+}
+.contacts__wrapper__map img {
+  width: 696px;
+  height: 414px;
 }/*# sourceMappingURL=main.css.map */
