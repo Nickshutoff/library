@@ -28,7 +28,7 @@
     </header>
     <main>
         <section class="welcome">
-            <div></div>
+            <div class="welcome-background"></div>
             <div>
                 <h2>Welcome <br> to the Brooklyn <br> Library</h2>
             </div>
@@ -54,6 +54,7 @@
                 </div>
             </div>
         </section>
+        
         <section class="favorites" id="favorites">
             <span>
                 <h2>Favorites</h2>
@@ -168,6 +169,7 @@
                 </div>
             </div>
         </section>
+
 		<section class="coffeeshop" id="coffeeshop">
 			<span class="coffeeshop__title">
                 <h2>Coffee Shop</h2>
@@ -271,6 +273,57 @@
 				</div>
 			</div>
 		</section>
+
+        <section class="library-card" id="librarycard">
+            <div class="library-card__title">
+                <h2>Digital Library Card</h2>
+                <hr>
+            </div>
+            <div class="library-card__container">
+                <div class="library-card__check">
+                    <h4 class="library-card__check-title">Find your library card</h4>
+                    <form class="library-card__check-form" action="" method="post">
+                        <div class="library-card__form-wrapper">
+                            <p>Brooklyn Public Library</p>
+                            <div class="library-card__form-field">
+                                <input type="text" id="readers-name" name="readers-name" class="library-card__form-input" placeholder="Reader's name" required>
+                                <input type="text" id="card-number" name="card-number" class="library-card__form-input" placeholder="Card number" required>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="library-card__form-button">Check the card</button>
+
+                        <div class="library-card__form-profile">
+                            <div class="profile-visits">
+                                <h6>Visits</h6>
+                                <img src="./img/icons/visits.png" alt="visits-icon">
+                                <h6 id="visits-counter">228</h6>
+                            </div>
+                            <div class="profile-bonuses">
+                                <h6>Bonuses</h6>
+                                <img src="./img/icons/bonuses.png" alt="bonuses-icon">
+                                <h6 id="bonuses-counter">1488</h6>
+                            </div>
+                            <div class="profile-books">
+                                <h6>Books</h6>
+                                <img src="./img/icons/books.png" alt="books-icon">
+                                <h6 id="visits-counter">666</h6>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="library-card__authorize">
+                    <span class="library-card__authorize-title"><h4>Get a reader card</h4></span>
+                    <span class="library-card__authorize-description"><h5>You will be able to see a reader card after logging into account or you can register a new account</h5></span>
+                    <div class="library-card__authorize-container">
+                        <button class="library-card__authorize-btn" id="library-card__sign-up" type="button">Sign Up</button>
+                        <button class="library-card__authorize-btn" id="library-card__log-in" type="button">Log In</button>
+                        
+                        <button class="library-card__authorize-btn profile" id="library-card__profile" type="button">Profile</button>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 </body>
 </html>

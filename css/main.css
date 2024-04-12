@@ -64,9 +64,10 @@ table {
 
 .header, .welcome, .about,
 .favorites, .coffeeshop,
-.contacts {
+.contacts, .library-card {
   max-width: 1440px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .header {
@@ -255,17 +256,15 @@ table {
 .favorites .card-container {
   margin-top: 40px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 550px);
   grid-template-rows: repeat(2, auto);
-  -moz-column-gap: 260px;
-       column-gap: 260px;
+  justify-content: space-between;
   row-gap: 40px;
 }
 .favorites .card-container__item {
   display: grid;
   grid-template-columns: 69% 31%;
   grid-template-rows: 1fr;
-  width: 550px;
   border: 1px #000000 solid;
   padding: 15px;
   position: relative;
@@ -312,12 +311,13 @@ table {
   margin-top: 15px;
   width: 75px;
   height: 30px;
-  border: 1px #000000 solid;
+  border: 1px #0C0C0E solid;
   color: #000000;
   font-weight: bold;
   font-size: 10px;
   line-height: 12px;
   letter-spacing: 1px;
+  background-color: #FFFFFF;
 }
 .favorites .card-container__item__image {
   position: relative;
@@ -331,7 +331,6 @@ table {
 .coffeeshop {
   background-color: #FFFFFF;
   padding: 20px 20px 40px;
-  width: 100%;
 }
 .coffeeshop__title {
   text-align: center;
@@ -357,9 +356,8 @@ table {
 .coffeeshop__prices {
   margin-top: 40px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  -moz-column-gap: 480px;
-       column-gap: 480px;
+  grid-template-columns: repeat(2, 460px);
+  justify-content: space-between;
 }
 .coffeeshop__prices__drinks {
   align-items: flex-start;
@@ -443,6 +441,150 @@ table {
   font-weight: normal;
 }
 .contacts__wrapper__map img {
-  width: 696px;
+  max-width: 696px;
   height: 414px;
+}
+
+.library-card {
+  background-color: #FFFFFF;
+  padding: 20px 20px 40px;
+}
+.library-card__title {
+  text-align: center;
+}
+.library-card__title h2 {
+  font-family: "Forum", sans-serif;
+  font-size: 40px;
+  line-height: 100%;
+  letter-spacing: 0.05em;
+}
+.library-card__title hr {
+  margin-top: 20px;
+  width: 50px;
+}
+.library-card__container {
+  margin-top: 40px;
+  display: flex;
+}
+.library-card__check {
+  display: flex;
+  width: 600px;
+  flex-direction: column;
+}
+.library-card__check-title {
+  text-align: center;
+  line-height: 36px;
+  letter-spacing: 2%;
+  font-family: "Inter", sans-serif;
+  font-size: 30px;
+}
+.library-card__check-form {
+  margin-top: 30px;
+  padding: 20px 25px;
+  border: 3px #BB945F solid;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.library-card__check-form .library-card__form-wrapper {
+  padding: 20px 22.5px;
+  background-color: #BB945F;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: "Forum", sans-serif;
+  font-size: 30px;
+  line-height: 50px;
+  letter-spacing: 2%;
+}
+.library-card__check-form .library-card__form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.library-card__check-form .library-card__form-input {
+  border-radius: 10px;
+  border: none;
+  font-family: "Forum", sans-serif;
+  font-size: 30px;
+  line-height: 50px;
+  letter-spacing: 2%;
+  padding: 8px 20px;
+}
+.library-card__check-form .library-card__form-input::-moz-placeholder {
+  color: #8E8E8E;
+}
+.library-card__check-form .library-card__form-input::placeholder {
+  color: #8E8E8E;
+}
+.library-card__check-form .library-card__form-button {
+  width: 242px;
+  height: 44px;
+  align-self: center;
+  background-color: #FFFFFF;
+  color: #0C0C0E;
+  border-radius: 2px;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 24px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+.library-card__check-form .library-card__form-profile {
+  display: none;
+  justify-content: center;
+  gap: 35px;
+  font-family: "Inter", sans-serif;
+  font-size: 10px;
+  line-height: 20px;
+  letter-spacing: 2%;
+}
+.library-card__check-form .library-card__form-profile .profile-visits,
+.library-card__check-form .library-card__form-profile .profile-bonuses,
+.library-card__check-form .library-card__form-profile .profile-books {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.library-card__authorize {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  align-items: flex-end;
+  width: 100%;
+}
+.library-card__authorize-title {
+  font-family: "Forum", sans-serif;
+  font-size: 30px;
+  line-height: 33px;
+  letter-spacing: 2%;
+}
+.library-card__authorize-description {
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  line-height: 40px;
+  max-width: 456px;
+  text-align: end;
+}
+.library-card__authorize-container {
+  display: flex;
+  gap: 20px;
+}
+.library-card__authorize-container .library-card__authorize-btn {
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 1px;
+  border: 1px #0C0C0E solid;
+  border-radius: 2px;
+  width: 75px;
+  height: 30px;
+  background-color: #FFFFFF;
+  cursor: pointer;
+}
+.library-card__authorize-container .library-card__authorize-btn.profile {
+  display: none;
 }/*# sourceMappingURL=main.css.map */

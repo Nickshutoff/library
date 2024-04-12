@@ -36,16 +36,15 @@
     .card-container {
         margin-top: 40px;
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 550px);
         grid-template-rows: repeat(2, auto);
-        column-gap: 260px;
+        justify-content: space-between;
         row-gap: 40px;
       
         &__item {
             display: grid;
             grid-template-columns: 69% 31%;
             grid-template-rows: 1fr;
-            width: 550px;
             border: 1px $black solid;
             padding: 15px;
             position: relative;
@@ -99,12 +98,13 @@
                 margin-top: 15px;
                 width: 75px;
                 height: 30px;
-                border: 1px $black solid;
+                border: 1px $dark solid;
                 color: $black;
                 font-weight: bold;
                 font-size: 10px;
                 line-height: 12px;
                 letter-spacing: 1px;
+                background-color: $white;
             }
 
             &__image {

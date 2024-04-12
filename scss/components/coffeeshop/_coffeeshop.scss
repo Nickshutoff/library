@@ -1,7 +1,6 @@
 .coffeeshop {
     background-color: $white;
     padding: 20px 20px 40px;
-    width: 100%;
     
     &__title {
         text-align: center;
@@ -22,8 +21,8 @@
     &__prices {
         margin-top: 40px;
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        column-gap: 480px;
+        grid-template-columns: repeat(2, 460px);
+        justify-content: space-between;
 
         &__drinks {
             align-items: flex-start;
