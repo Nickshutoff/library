@@ -10,7 +10,6 @@
     .radiobox__wrapper {
         margin-top: 40px;
         font-family: $inter;
-        font-weight: bold;
         font-size: 20px;
         line-height: 120%;
 
@@ -25,6 +24,10 @@
             input[type="radio"] {
                 @include custom-radio;
                 margin-right: 20px;
+            }
+
+            input[type="radio"]:checked + label {
+                font-weight: bold;
             }
 
             label {
