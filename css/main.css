@@ -80,7 +80,7 @@ table {
   line-height: 50px;
   color: #FFFFFF;
 }
-.header span h1 {
+.header div:first-child h1 {
   font-family: "Forum", sans-serif;
   font-size: 30px;
   line-height: 167%;
@@ -148,20 +148,20 @@ table {
   background-color: #FFFFFF;
   padding: 20px 20px 40px;
 }
-.about span {
+.about div:first-child {
   text-align: center;
 }
-.about span h2 {
+.about div:first-child h2 {
   font-family: "Forum", sans-serif;
   font-size: 40px;
   line-height: 100%;
   letter-spacing: 0.05em;
 }
-.about span hr {
+.about div:first-child hr {
   margin-top: 20px;
   width: 50px;
 }
-.about span h3 {
+.about div:first-child h3 {
   margin-top: 32px;
   font-family: "Inter", sans-serif;
   font-size: 20px;
@@ -202,16 +202,16 @@ table {
   background-color: #FFFFFF;
   padding: 20px 20px 40px;
 }
-.favorites span {
+.favorites div:first-child {
   text-align: center;
 }
-.favorites span h2 {
+.favorites div:first-child h2 {
   font-family: "Forum", sans-serif;
   font-size: 40px;
   line-height: 100%;
   letter-spacing: 0.05em;
 }
-.favorites span hr {
+.favorites div:first-child hr {
   margin-top: 20px;
   width: 50px;
 }
@@ -348,7 +348,7 @@ table {
   margin-top: 20px;
   width: 50px;
 }
-.coffeeshop__description p {
+.coffeeshop__description {
   margin-top: 40px;
   text-align: center;
   font-family: "Inter", sans-serif;
