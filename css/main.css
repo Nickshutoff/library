@@ -494,6 +494,7 @@ table {
 .library-card__check-form {
   margin-top: 30px;
   padding: 20px 25px;
+  width: 600px;
   border: 3px #BB945F solid;
   display: flex;
   flex-direction: column;
