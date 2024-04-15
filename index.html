@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Brooklyn Public Library</title>
     <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
@@ -269,7 +269,7 @@
 					</span>
 				</div>
 				<div class="contacts__wrapper__map">
-					<img src="./img/map.png" alt="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3025.01579236972!2d-73.99387252271052!3d40.69564983861432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a49b649b8c3%3A0x6342a2291cea2e!2zMjg2IENhZG1hbiBQbHogVywgQnJvb2tseW4sIE5ZIDExMjAxLCDQodCo0JA!5e0!3m2!1sru!2sru!4v1713020899983!5m2!1sru!2sru" width="696" height="414" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 				</div>
 			</div>
 		</section>
@@ -290,9 +290,9 @@
                                 <input type="text" id="card-number" name="card-number" class="library-card__form-input" placeholder="Card number" required>
                             </div>
                         </div>
-
+                        <!-- This will be hidden AFTER logging -->
                         <button type="submit" class="library-card__form-button">Check the card</button>
-
+                        <!-- This will be shown AFTER logging -->
                         <div class="library-card__form-profile">
                             <div class="profile-visits">
                                 <h6>Visits</h6>
@@ -316,9 +316,10 @@
                     <span class="library-card__authorize-title"><h4>Get a reader card</h4></span>
                     <span class="library-card__authorize-description"><h5>You will be able to see a reader card after logging into account or you can register a new account</h5></span>
                     <div class="library-card__authorize-container">
+                        <!-- This will be shown BEFORE logging -->
                         <button class="library-card__authorize-btn" id="library-card__sign-up" type="button">Sign Up</button>
                         <button class="library-card__authorize-btn" id="library-card__log-in" type="button">Log In</button>
-                        
+                        <!-- This will be shown AFTER logging -->
                         <button class="library-card__authorize-btn profile" id="library-card__profile" type="button">Profile</button>
                     </div>
                 </div>
@@ -326,7 +327,28 @@
         </section>
 
         <section class="footer">
-            
+            <div class="footer-info">
+                <div class="footer-address">
+                    <span>286 Cadman Plaza, New York, <br>NY 11238, United States</span>
+                    <span class="footer-social-media">
+                        <a href="#"><img src="./img/icons/u_twitter-alt.png" alt="twitter"></a>
+                        <a href="#"><img src="./img/icons/u_instagram.png" alt="instagram"></a>
+                        <a href="#"><img src="./img/icons/u_facebook-f.png" alt="facebook"></a>
+                    </span>
+                </div>
+                <div class="footer-working-hours">
+                    <span>Mon - Fri</span>
+                    <span>08:00 am - 07:00 pm</span>
+                    <span>Sat - Sun</span>
+                    <span>10:00 am - 06:00 pm</span>
+                </div>
+            </div>
+            <hr>
+            <div class="footer-copyright">
+                <span>2023</span>
+                <span>Rolling Scopes School</span>
+                <span>Nickshutoff</span>
+            </div>
         </section>
     </main>
 </body>

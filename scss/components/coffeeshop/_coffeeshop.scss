@@ -21,15 +21,24 @@
     &__prices {
         margin-top: 40px;
         display: grid;
-        grid-template-columns: repeat(2, 460px);
+        grid-template-columns: repeat(2, 1fr);
         justify-content: space-between;
 
         &__drinks {
             align-items: flex-start;
+            &-item {
+                width: 438px;
+            }
         }
 
         &__food {
             align-items: flex-end;
+            text-align: right;
+            &-item {
+                p:first-child {
+                    margin-right: 60px;
+                }
+            }
         }
 
         &__drinks,
@@ -50,7 +59,6 @@
                 font-size: 20px;
                 color: $black;
                 display: flex;
-                width: 100%;
                 align-items: center;
 
                 p:first-child {
