@@ -148,20 +148,20 @@ table {
   background-color: #FFFFFF;
   padding: 20px 20px 40px;
 }
-.about div:first-child {
+.about__title {
   text-align: center;
 }
-.about div:first-child h2 {
+.about__title h2 {
   font-family: "Forum", sans-serif;
   font-size: 40px;
   line-height: 100%;
   letter-spacing: 0.05em;
 }
-.about div:first-child hr {
+.about__title hr {
   margin-top: 20px;
   width: 50px;
 }
-.about div:first-child h3 {
+.about__title h3 {
   margin-top: 32px;
   font-family: "Inter", sans-serif;
   font-size: 20px;
@@ -197,21 +197,24 @@ table {
 .about .carousel__controll button:hover {
   background-color: #BB945F;
 }
+.about .carousel__controll button.active {
+  background-color: #BB945F;
+}
 
 .favorites {
   background-color: #FFFFFF;
   padding: 20px 20px 40px;
 }
-.favorites div:first-child {
+.favorites__title {
   text-align: center;
 }
-.favorites div:first-child h2 {
+.favorites__title h2 {
   font-family: "Forum", sans-serif;
   font-size: 40px;
   line-height: 100%;
   letter-spacing: 0.05em;
 }
-.favorites div:first-child hr {
+.favorites__title hr {
   margin-top: 20px;
   width: 50px;
 }
@@ -627,6 +630,7 @@ table {
   align-items: flex-end;
 }
 .footer hr {
+  margin-top: 30px;
   width: 100%;
 }
 .footer-copyright {

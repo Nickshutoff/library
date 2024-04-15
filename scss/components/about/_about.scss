@@ -2,7 +2,7 @@
     background-color: $white;
     padding: 20px 20px 40px;
 
-    div:first-child {
+    &__title {
         text-align: center;
         @include section-heading;
 
@@ -40,9 +40,13 @@
                 border-radius: 50%;
                 width: 16px;
                 height: 16px;
-                
                 cursor: pointer;
+
                 &:hover {
+                    background-color: $sand;
+                }
+
+                &.active {
                     background-color: $sand;
                 }
             }
