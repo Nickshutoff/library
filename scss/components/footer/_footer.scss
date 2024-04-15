@@ -8,10 +8,8 @@
     &__info {
         display: flex;
         justify-content: space-between;
-        font {
-            family: $inter;
-            size: 15px;
-        }
+        font-family: $inter;
+        font-size: 15px;
         line-height: 20px;
     }
 
@@ -37,7 +35,7 @@
     }
 
     &__copyright {
-        margin-top: 10px;
+        margin-top: 44px;
         display: flex;
         justify-content: space-between;
         font-size: 20px;

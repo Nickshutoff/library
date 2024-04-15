@@ -457,11 +457,9 @@ table {
 .footer__info {
   display: flex;
   justify-content: space-between;
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
   line-height: 20px;
-}
-.footer__info font {
-  family: "Inter", sans-serif;
-  size: 15px;
 }
 .footer__address {
   display: flex;
@@ -481,7 +479,7 @@ table {
   width: 100%;
 }
 .footer__copyright {
-  margin-top: 10px;
+  margin-top: 44px;
   display: flex;
   justify-content: space-between;
   font-size: 20px;
