@@ -241,6 +241,7 @@ table {
   border-radius: 50%;
   position: relative;
   margin-right: 20px;
+  cursor: pointer;
 }
 .favorites .radiobox__wrapper-field input[type=radio]:checked::before {
   content: "";
@@ -324,6 +325,7 @@ table {
   line-height: 12px;
   letter-spacing: 1px;
   background-color: #FFFFFF;
+  cursor: pointer;
 }
 .favorites .card-container__item__image {
   position: relative;
