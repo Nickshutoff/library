@@ -18,6 +18,11 @@
         justify-content: space-between;
         margin-top: 40px;
 
+        @include md {
+            flex-direction: column;
+            gap: 100px;
+        }
+
         &__text {             
             gap: 40px;
             flex-direction: column;
@@ -43,9 +48,9 @@
         }
 
         &__map {
-            img {
-                max-width: 696px;
-                height: 414px;
+            @include md {
+                display: flex;
+                justify-content: center;
             }
         }
     }

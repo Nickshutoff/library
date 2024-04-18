@@ -72,38 +72,46 @@ table {
 }
 
 .header {
-  background-color: #0C0C0E;
   padding: 20px;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   line-height: 50px;
+  background-color: #0C0C0E;
   color: #FFFFFF;
 }
-.header div:first-child h1 {
+.header h1 {
   font-family: "Forum", sans-serif;
   font-size: 30px;
   line-height: 167%;
   letter-spacing: 0.02em;
 }
-.header div {
+.header .menu__container {
   display: flex;
   align-items: center;
   gap: 40px;
 }
-.header div ul {
+.header .menu__container ul {
   display: flex;
   flex-direction: row;
   gap: 30px;
 }
-.header div ul a {
+@media (max-width: 768px) {
+  .header .menu__container ul {
+    display: none;
+  }
+}
+.header .menu__container ul a {
   font-family: "Inter", sans-serif;
   font-size: 20px;
   color: #FFFFFF;
   text-decoration: none;
   line-height: 220%;
 }
-.header div div:hover {
+.header .menu__container .profile__icon {
+  display: flex;
+  align-items: center;
+}
+.header .menu__container .profile__icon:hover {
   cursor: pointer;
 }
 
@@ -200,6 +208,16 @@ table {
 .about .carousel__controll button.active {
   background-color: #BB945F;
 }
+.about .carousel__controll #carousel-btn-4,
+.about .carousel__controll #carousel-btn-5 {
+  display: none;
+}
+@media (max-width: 768px) {
+  .about .carousel__controll #carousel-btn-4,
+  .about .carousel__controll #carousel-btn-5 {
+    display: block;
+  }
+}
 
 .favorites {
   background-color: #FFFFFF;
@@ -267,6 +285,12 @@ table {
   grid-template-rows: repeat(2, auto);
   justify-content: space-between;
   row-gap: 40px;
+}
+@media (max-width: 768px) {
+  .favorites .card-container {
+    grid-template-columns: repeat(1, 550px);
+    justify-content: center;
+  }
 }
 .favorites .card-container__item {
   display: grid;
@@ -366,6 +390,12 @@ table {
   grid-template-columns: repeat(2, 1fr);
   justify-content: space-between;
 }
+@media (max-width: 768px) {
+  .coffeeshop__prices {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 40px;
+  }
+}
 .coffeeshop__prices__drinks {
   align-items: flex-start;
 }
@@ -434,6 +464,12 @@ table {
   justify-content: space-between;
   margin-top: 40px;
 }
+@media (max-width: 768px) {
+  .contacts__wrapper {
+    flex-direction: column;
+    gap: 100px;
+  }
+}
 .contacts__wrapper__text {
   gap: 40px;
   flex-direction: column;
@@ -453,9 +489,11 @@ table {
 .contacts__wrapper__text-staff span {
   font-weight: normal;
 }
-.contacts__wrapper__map img {
-  max-width: 696px;
-  height: 414px;
+@media (max-width: 768px) {
+  .contacts__wrapper__map {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .library-card {
@@ -479,9 +517,15 @@ table {
   margin-top: 40px;
   display: flex;
 }
+@media (max-width: 768px) {
+  .library-card__container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+}
 .library-card__check {
   display: flex;
-  width: 600px;
   flex-direction: column;
 }
 .library-card__check-title {
@@ -569,6 +613,11 @@ table {
   align-items: flex-end;
   width: 100%;
 }
+@media (max-width: 768px) {
+  .library-card__authorize {
+    align-items: center;
+  }
+}
 .library-card__authorize-title {
   font-family: "Forum", sans-serif;
   font-size: 30px;
@@ -581,6 +630,12 @@ table {
   line-height: 40px;
   max-width: 456px;
   text-align: end;
+}
+@media (max-width: 768px) {
+  .library-card__authorize-description {
+    text-align: center;
+    max-width: 600px;
+  }
 }
 .library-card__authorize-container {
   display: flex;

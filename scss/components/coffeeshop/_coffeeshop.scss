@@ -24,6 +24,11 @@
         grid-template-columns: repeat(2, 1fr);
         justify-content: space-between;
 
+        @include md {
+            grid-template-columns: repeat(1, 1fr);
+            gap: 40px;
+        }
+
         &__drinks {
             align-items: flex-start;
             &-item {

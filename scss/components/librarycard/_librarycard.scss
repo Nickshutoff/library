@@ -10,11 +10,16 @@
     &__container {
         margin-top: 40px;
         display: flex;
+
+        @include md {
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
     }
 
     &__check {
         display: flex;
-        width: 600px;
         flex-direction: column;
 
         &-title {
@@ -113,8 +118,10 @@
         flex-direction: column;
         gap: 35px;
         align-items: flex-end;
-        
         width: 100%;
+        @include md {
+            align-items: center;
+        }
 
         &-title {
             font-family: $forum;
@@ -129,6 +136,11 @@
             line-height: 40px;
             max-width: 456px;
             text-align: end;
+
+            @include md {
+                text-align: center;
+                max-width: 600px;
+            }
         }
 
         &-container {

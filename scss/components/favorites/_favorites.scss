@@ -44,6 +44,11 @@
         grid-template-rows: repeat(2, auto);
         justify-content: space-between;
         row-gap: 40px;
+
+        @include md {
+            grid-template-columns: repeat(1, 550px);
+            justify-content: center;
+        }
       
         &__item {
             display: grid;

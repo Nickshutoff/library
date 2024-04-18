@@ -50,6 +50,18 @@
                     background-color: $sand;
                 }
             }
+            
+            #carousel-btn-4,
+            #carousel-btn-5 {
+                display: none;
+            }
+
+            @include md {
+                #carousel-btn-4,
+                #carousel-btn-5 {
+                display: block;
+                }
+            }
         }
     }
 }

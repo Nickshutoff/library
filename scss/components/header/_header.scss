@@ -1,28 +1,31 @@
 .header {
-    background-color: $dark;
     padding: 20px;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     line-height: 50px;
+    background-color: $dark;
     color: $white;
 
-    div:first-child h1 {
+    h1 {
         font-family: $forum;
         font-size: 30px;
         line-height: 167%;
         letter-spacing: 0.02em;
     }
     
-    div {
+    .menu__container {
         display: flex;
         align-items: center;
         gap: 40px;
-
+        
         ul {
             display: flex;
             flex-direction: row;
             gap: 30px;
+
+            @include md {
+                display: none;
+            }
         
             a {
                 font-family: $inter;
@@ -32,8 +35,13 @@
                 line-height: 220%;
             }
         }
+
+        .profile__icon {
+            display: flex;
+            align-items: center;
+            }
         
-        div:hover {
+        .profile__icon:hover {
             cursor: pointer;
         }
     }
