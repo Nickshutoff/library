@@ -16,6 +16,7 @@
         &-field {
             display: flex;
             align-items: center;
+            gap: 90px;
 
             legend {
                 margin-bottom: 40px;
@@ -30,10 +31,6 @@
             input[type="radio"]:checked + label {
                 font-weight: bold;
             }
-
-            label {
-                margin-right: 90px;
-            }
         }
     }
 
@@ -42,7 +39,7 @@
         display: grid;
         grid-template-columns: repeat(2, 550px);
         grid-template-rows: repeat(2, auto);
-        justify-content: space-between;
+        grid-column-gap: 260px;
         row-gap: 40px;
 
         @include md {
@@ -51,9 +48,7 @@
         }
       
         &__item {
-            display: grid;
-            grid-template-columns: 69% 31%;
-            grid-template-rows: 1fr;
+            display: flex;
             border: 1px $black solid;
             padding: 15px;
             position: relative;
@@ -94,6 +89,7 @@
                 line-height: 40px;
                 letter-spacing: 2px;
                 text-transform: capitalize;
+
                 h5 {
                     text-transform: uppercase;
                 }
@@ -101,6 +97,7 @@
       
             &__text {
                 font-weight: normal;
+                max-width: 355px;
             }
       
             &__btn {
@@ -118,11 +115,11 @@
             }
 
             &__image {
-                position: relative;
-                align-self: end;
+                position: absolute;
                 width: 200px;
                 height: 300px;
-                bottom: -17px;
+                bottom: -1px;
+                right: -40px;
             }
         }
     }

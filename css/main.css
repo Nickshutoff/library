@@ -60,6 +60,7 @@ table {
 
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 .header, .welcome, .about,
@@ -280,6 +281,7 @@ table {
 .favorites .radiobox__wrapper-field {
   display: flex;
   align-items: center;
+  gap: 90px;
 }
 .favorites .radiobox__wrapper-field legend {
   margin-bottom: 40px;
@@ -310,15 +312,12 @@ table {
 .favorites .radiobox__wrapper-field input[type=radio]:checked + label {
   font-weight: bold;
 }
-.favorites .radiobox__wrapper-field label {
-  margin-right: 90px;
-}
 .favorites .card-container {
   margin-top: 40px;
   display: grid;
   grid-template-columns: repeat(2, 550px);
   grid-template-rows: repeat(2, auto);
-  justify-content: space-between;
+  grid-column-gap: 260px;
   row-gap: 40px;
 }
 @media (max-width: 768px) {
@@ -328,9 +327,7 @@ table {
   }
 }
 .favorites .card-container__item {
-  display: grid;
-  grid-template-columns: 69% 31%;
-  grid-template-rows: 1fr;
+  display: flex;
   border: 1px #000000 solid;
   padding: 15px;
   position: relative;
@@ -372,6 +369,7 @@ table {
 }
 .favorites .card-container__item__text {
   font-weight: normal;
+  max-width: 355px;
 }
 .favorites .card-container__item__btn {
   margin-top: 15px;
@@ -387,11 +385,11 @@ table {
   cursor: pointer;
 }
 .favorites .card-container__item__image {
-  position: relative;
-  align-self: end;
+  position: absolute;
   width: 200px;
   height: 300px;
-  bottom: -17px;
+  bottom: -1px;
+  right: -40px;
 }
 
 .coffeeshop {
