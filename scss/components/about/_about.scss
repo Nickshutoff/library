@@ -21,29 +21,28 @@
             display: flex;
             flex-direction: row;
             gap: 25px;
-            
+            position: relative;
             overflow-x: hidden;
-            
+            transition: all ease-in-out 0.3;
+
             @include md {
                 justify-content: center;
+            }
+
+            .carousel-left,
+            .carousel-right {
+                display: none;
+
+                @include md {
+                    display: block;
+                    position: relative;
+                    margin: 58px;
+                }
             }
 
             img {
                 display: flex;
             }
-
-            #carousel-img-4,
-            #carousel-img-5 {
-                display: none;
-            }
-
-            @include md {
-                #carousel-img-2, #carousel-img-3,
-                #carousel-img-4, #carousel-img-5 {
-                    display: none;
-                }
-            }
-
         }
 
         &__controll {

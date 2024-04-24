@@ -11,15 +11,15 @@
         <h1>Brooklyn Public Library</h1>
         <div class="menu__container">
             <nav>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#favorites">Favorites</a></li>
-                    <li><a href="#coffeeshop">Coffee Shop</a></li>
-                    <li><a href="#contacts">Contacts</a></li>
-                    <li><a href="#librarycard">Library card</a></li>
+                <ul class="menu__list">
+                    <li class="menu__link"><a href="#about">About</a></li>
+                    <li class="menu__link"><a href="#favorites">Favorites</a></li>
+                    <li class="menu__link"><a href="#coffeeshop">Coffee Shop</a></li>
+                    <li class="menu__link"><a href="#contacts">Contacts</a></li>
+                    <li class="menu__link"><a href="#librarycard">Library card</a></li>
                 </ul>
             </nav>
-            <div class="profile__icon">
+            <div class="menu__profile">
                 <img src="./img/icons/icon_profile.png" alt="profile__icon" role="button">
             </div>
             <div class="menu__hamburger">
@@ -43,6 +43,7 @@
                 <h3>The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside</h3>
             </div>
             <div class="carousel" id="carousel">
+            
                 <div class="carousel__gallery">
                     <img id="carousel-img-1" src="./img/carousel/c1.png" alt="woman">
                     <img id="carousel-img-2" src="./img/carousel/c2.png" alt="statues">
@@ -50,12 +51,13 @@
                     <img id="carousel-img-4" src="./img/carousel/c4.png" alt="bookshelf">
                     <img id="carousel-img-5" src="./img/carousel/c5.png" alt="entrance">
                 </div>
+            
                 <div class="carousel__controll">
-                    <button type="button" id="carousel-btn-1" class="active"></button>
-                    <button type="button" id="carousel-btn-2"></button>
-                    <button type="button" id="carousel-btn-3"></button>
-                    <button type="button" id="carousel-btn-4"></button>
-                    <button type="button" id="carousel-btn-5"></button>
+                    <button type="button" class="carousel-btn 1 active"></button>
+                    <button type="button" class="carousel-btn 2"></button>
+                    <button type="button" class="carousel-btn 3"></button>
+                    <button type="button" class="carousel-btn 4"></button>
+                    <button type="button" class="carousel-btn 5"></button>
                 </div>
             </div>
         </section>
@@ -363,5 +365,6 @@
             <span>Nickshutoff</span>
         </div>
     </footer>
+    <script src="./script.js"></script>
 </body>
 </html>

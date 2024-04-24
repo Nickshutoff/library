@@ -91,28 +91,47 @@ table {
   align-items: center;
   gap: 40px;
 }
-.header .menu__container ul {
+.header .menu__container .menu__list {
   display: flex;
-  flex-direction: row;
   gap: 30px;
 }
 @media (max-width: 768px) {
-  .header .menu__container ul {
-    display: none;
+  .header .menu__container .menu__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -100%;
+    right: 0;
+    z-index: 15;
+    width: 43vw;
+    height: 38vh;
+    background-color: #0C0C0E;
+    transition: all ease-in-out 0.3s;
+    opacity: 0;
+  }
+  .header .menu__container .menu__list.active {
+    top: 0%;
+    opacity: 1;
   }
 }
-.header .menu__container ul a {
+.header .menu__container .menu__list a {
   font-family: "Inter", sans-serif;
   font-size: 20px;
   color: #FFFFFF;
   text-decoration: none;
   line-height: 220%;
 }
-.header .menu__container .profile__icon {
+.header .menu__container .menu__list a:hover {
+  cursor: pointer;
+}
+.header .menu__container .menu__profile {
   display: flex;
   align-items: center;
+  z-index: 16;
 }
-.header .menu__container .profile__icon:hover {
+.header .menu__container .menu__profile:hover {
   cursor: pointer;
 }
 .header .menu__container .menu__hamburger {
@@ -124,6 +143,7 @@ table {
     flex-direction: column;
     gap: 10px;
     width: 45px;
+    z-index: 16;
   }
 }
 .header .menu__container .menu__hamburger:hover {
@@ -134,6 +154,16 @@ table {
   width: 100%;
   height: 2px;
   background-color: #FFFFFF;
+  transition: all ease-in-out 0.3s;
+}
+.header .menu__container .menu__hamburger .active-hamburger-line-1 {
+  opacity: 0;
+}
+.header .menu__container .menu__hamburger .active-hamburger-line-2 {
+  transform: rotateZ(46deg);
+}
+.header .menu__container .menu__hamburger .active-hamburger-line-3 {
+  transform: translateY(-12px) rotateZ(-46deg);
 }
 
 .welcome {
@@ -203,25 +233,29 @@ table {
   display: flex;
   flex-direction: row;
   gap: 25px;
+  position: relative;
   overflow-x: hidden;
+  transition: all ease-in-out 0.3;
 }
 @media (max-width: 768px) {
   .about .carousel__gallery {
     justify-content: center;
   }
 }
-.about .carousel__gallery img {
-  display: flex;
-}
-.about .carousel__gallery #carousel-img-4,
-.about .carousel__gallery #carousel-img-5 {
+.about .carousel__gallery .carousel-left,
+.about .carousel__gallery .carousel-right {
   display: none;
 }
 @media (max-width: 768px) {
-  .about .carousel__gallery #carousel-img-2, .about .carousel__gallery #carousel-img-3,
-  .about .carousel__gallery #carousel-img-4, .about .carousel__gallery #carousel-img-5 {
-    display: none;
+  .about .carousel__gallery .carousel-left,
+  .about .carousel__gallery .carousel-right {
+    display: block;
+    position: relative;
+    margin: 58px;
   }
+}
+.about .carousel__gallery img {
+  display: flex;
 }
 .about .carousel__controll {
   margin-top: 40px;
