@@ -226,34 +226,37 @@ table {
   font-size: 20px;
   line-height: 200%;
 }
-.about .carousel {
+.about .carousel-wrapper {
   margin-top: 20px;
 }
-.about .carousel__gallery {
+.about .carousel-wrapper .carousel {
   display: flex;
   flex-direction: row;
-  gap: 25px;
-  overflow: hidden;
+  gap: 58px;
 }
 @media (max-width: 768px) {
-  .about .carousel__gallery {
+  .about .carousel-wrapper .carousel {
     justify-content: center;
     align-items: center;
   }
 }
-.about .carousel__gallery .carousel-left,
-.about .carousel__gallery .carousel-right {
+.about .carousel-wrapper .carousel .carousel-swipe-left,
+.about .carousel-wrapper .carousel .carousel-swipe-right {
   display: none;
 }
 @media (max-width: 768px) {
-  .about .carousel__gallery .carousel-left,
-  .about .carousel__gallery .carousel-right {
-    display: block;
+  .about .carousel-wrapper .carousel .carousel-swipe-left,
+  .about .carousel-wrapper .carousel .carousel-swipe-right {
+    display: flex;
     position: relative;
-    margin: 58px;
+    width: 24px;
+    height: 24px;
   }
 }
-.about .carousel__gallery .carousel-content {
+.about .carousel-wrapper .carousel .carousel-gallery {
+  overflow: hidden;
+}
+.about .carousel-wrapper .carousel .carousel-gallery .carousel-content {
   display: flex;
   gap: 25px;
   position: relative;
@@ -261,22 +264,22 @@ table {
   transition: transform 0.7s;
 }
 @media (max-width: 768px) {
-  .about .carousel__gallery .carousel-content {
+  .about .carousel-wrapper .carousel .carousel-gallery .carousel-content {
     width: 450px;
   }
 }
-.about .carousel__gallery .carousel-content .content-item {
+.about .carousel-wrapper .carousel .carousel-gallery .carousel-content .content-item {
   position: relative;
   right: 0;
 }
-.about .carousel__controll {
+.about .carousel-wrapper .carousel__controll {
   margin-top: 40px;
   display: flex;
   flex-direction: row;
   gap: 10px;
   justify-content: center;
 }
-.about .carousel__controll .carousel-btn {
+.about .carousel-wrapper .carousel__controll .carousel-btn {
   background-color: #000000;
   border: none;
   border-radius: 50%;
@@ -284,15 +287,15 @@ table {
   height: 16px;
   cursor: pointer;
 }
-.about .carousel__controll .carousel-btntablet {
+.about .carousel-wrapper .carousel__controll .carousel-btn.tablet {
   display: none;
 }
 @media (max-width: 768px) {
-  .about .carousel__controll .carousel-btntablet {
+  .about .carousel-wrapper .carousel__controll .carousel-btn.tablet {
     display: block;
   }
 }
-.about .carousel__controll .carousel-btn:hover, .about .carousel__controll .carousel-btn.active {
+.about .carousel-wrapper .carousel__controll .carousel-btn:hover, .about .carousel-wrapper .carousel__controll .carousel-btn.active {
   background-color: #BB945F;
 }
 

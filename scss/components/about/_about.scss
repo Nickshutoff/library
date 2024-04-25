@@ -14,14 +14,13 @@
         }
     }
 
-    .carousel {
+    .carousel-wrapper {
         margin-top: 20px;
 
-        &__gallery {
+        .carousel {
             display: flex;
             flex-direction: row;
-            gap: 25px;
-            overflow: hidden;
+            gap: 58px;
 
             @include md {
 
@@ -29,36 +28,41 @@
                 align-items: center;
             }
 
-            .carousel-left,
-            .carousel-right {
+            .carousel-swipe-left,
+            .carousel-swipe-right {
                 display: none;
 
                 @include md {
-                    display: block;
+                    display: flex;
                     position: relative;
-                    margin: 58px;
+                    width: 24px;
+                    height: 24px;
                 }
             }
 
-            .carousel-content {
-                display: flex;
-                gap: 25px;
-                position: relative;
-                right: 0;
-                transition: transform 0.7s;
+            .carousel-gallery {
+                overflow: hidden;
 
-                @include md {
-                    width: 450px;
-                }
-
-                .content-item {
+                .carousel-content {
+                    display: flex;
+                    gap: 25px;
                     position: relative;
                     right: 0;
+                    transition: transform 0.7s;
+    
+                    @include md {
+                        width: 450px;
+                    }
+    
+                    .content-item {
+                        position: relative;
+                        right: 0;
+                    }
                 }
             }
         }
 
-        &__controll {
+        .carousel__controll {
             margin-top: 40px;
             display: flex;
             flex-direction: row;
@@ -72,8 +76,8 @@
                 width: 16px;
                 height: 16px;
                 cursor: pointer;
-
-                &tablet {
+                
+                &.tablet {
                     display: none;
 
                     @include md {
