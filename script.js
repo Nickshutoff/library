@@ -22,3 +22,16 @@ mobileMenuLinks.forEach(link => {
 })
 
 // About
+const carouselBtn = document.querySelectorAll('.carousel-btn')
+const carousel = document.querySelector('.carousel-content')
+
+carouselBtn.forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+        carouselBtn.forEach(el => {
+            el.classList.remove('active')
+        })
+        
+        btn.classList.add('active')
+        carousel.style.transform = `translateX(-${index * 475}px)`
+    })
+})
