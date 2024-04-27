@@ -27,6 +27,7 @@ const carousel = document.querySelector('.carousel-content')
 const carouselSwipeLeft = document.querySelector('.carousel-swipe-left')
 const carouselSwipeRight = document.querySelector('.carousel-swipe-right')
 
+let btnIndex = 0
 
 carouselBtn.forEach((btn, index) => {
     btn.addEventListener('click', () => {
@@ -38,8 +39,6 @@ carouselBtn.forEach((btn, index) => {
         carousel.style.transform = `translateX(-${index * 475}px)`
     })
 })
-
-let btnIndex = 0
 
 carouselSwipeRight.addEventListener('click', () => {
     if (btnIndex < carouselBtn.length - 1) {
