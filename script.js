@@ -54,3 +54,5 @@ carouselSwipeLeft.addEventListener('click', () => {
         carouselBtn[btnIndex].click()
     }
 })
+
+// Favorites
