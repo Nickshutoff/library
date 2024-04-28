@@ -22,9 +22,13 @@
                 margin-bottom: 40px;
             }
 
+            label {
+                cursor: pointer;
+            }
+
             input[type="radio"] {
                 @include custom-radio;
-                margin-right: 20px;
+                margin-right: 15px;
                 cursor: pointer;
             }
 
@@ -35,92 +39,106 @@
     }
 
     .card-container {
+        display: flex;
+        position: relative;
         margin-top: 40px;
-        display: grid;
-        grid-template-columns: repeat(2, 550px);
-        grid-template-rows: repeat(2, auto);
-        grid-column-gap: 260px;
-        row-gap: 40px;
+        height: 1150px;
 
-        @include md {
-            grid-template-columns: repeat(1, 550px);
-            justify-content: center;
-        }
-      
-        &__item {
-            display: flex;
-            border: 1px $black solid;
-            padding: 15px;
-            position: relative;
-      
-            &__info-wrapper {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
+            @include md {
+                justify-content: center;
+                height: 2340px;
             }
-      
-            &__info {
-                font-family: $inter;
-                gap: 20px;
-                display: flex;
-                flex-direction: column;
-            }
-      
-            &__head {
-                font-family: $forum;
-                font-size: 20px;
-                line-height: 40px;
-                letter-spacing: 2px;
-            }
-      
-            hr {
-                border: none;
-                height: 1px;
-                background-color: $sand;
-                position: absolute;
-                left: 15px;
-                width: 60px;
-            }
-      
-            &__title,
-            &__text {
-                font-weight: bold;
-                font-size: 15px;
-                line-height: 40px;
-                letter-spacing: 2px;
-                text-transform: capitalize;
 
-                h5 {
-                    text-transform: uppercase;
+        .winter, .spring,
+        .summer, .autumn {
+            display: grid;
+            grid-template-columns: repeat(2, 550px);
+            grid-template-rows: repeat(2, 555px);
+            grid-column-gap: 260px;
+            row-gap: 40px;
+            position: absolute;
+
+            z-index: 0;
+            opacity: 0;
+
+                @include md {
+                    grid-template-columns: repeat(1, 550px);
                 }
-            }
-      
-            &__text {
-                font-weight: normal;
-                max-width: 355px;
-            }
-      
-            &__btn {
-                margin-top: 15px;
-                width: 75px;
-                height: 30px;
-                border: 1px $dark solid;
-                color: $black;
-                font-weight: bold;
-                font-size: 10px;
-                line-height: 12px;
-                letter-spacing: 1px;
-                background-color: $white;
-                cursor: pointer;
-            }
-
-            &__image {
-                position: absolute;
-                width: 200px;
-                height: 300px;
-                bottom: -1px;
-                right: -40px;
-            }
+                
+            .book {
+                display: flex;
+                border: 1px $black solid;
+                padding: 15px;
+                position: relative;
+                
+                .book-wrapper {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                }
+                
+                .book-info {
+                    font-family: $inter;
+                    gap: 19px;
+                    display: flex;
+                    flex-direction: column;
+                }
+                
+                .book-label {
+                    font-family: $forum;
+                    font-size: 20px;
+                    line-height: 40px;
+                    letter-spacing: 2px;
+                    hr {
+                        border: none;
+                        height: 1px;
+                        background-color: $sand;
+                        position: absolute;
+                        left: 15px;
+                        width: 60px;
+                    }
+                }
+                
+                .book-title,
+                .book-description {
+                    font-weight: bold;
+                    font-size: 15px;
+                    line-height: 40px;
+                    letter-spacing: 2px;
+                    text-transform: capitalize;
+    
+                    h5 {
+                        text-transform: uppercase;
+                    }
+                }
+                
+                .book-description {
+                    font-weight: normal;
+                    max-width: 355px;
+                }
+                
+                .book-btn {
+                    margin-top: 15px;
+                    width: 75px;
+                    height: 30px;
+                    border: 1px $dark solid;
+                    color: $black;
+                    font-weight: bold;
+                    font-size: 10px;
+                    line-height: 12px;
+                    letter-spacing: 1px;
+                    background-color: $white;
+                    cursor: pointer;
+                }
+                
+                .book-image {
+                    position: absolute;
+                    width: 200px;
+                    height: 300px;
+                    bottom: -1px;
+                    right: -40px;
+                }
+            }   
         }
     }
 }

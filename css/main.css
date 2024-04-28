@@ -68,10 +68,37 @@ table {
 .contacts, .library-card,
 .footer {
   max-width: 1440px;
+  min-width: 768px;
   margin: 0 auto;
   width: 100%;
 }
 
+.fade-in {
+  animation: fadeIn 0.5s forwards;
+  z-index: 1;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.fade-out {
+  animation: fadeOut 0.5s forwards;
+  z-index: 0;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
 .header {
   padding: 20px;
   display: flex;
@@ -330,6 +357,9 @@ table {
 .favorites .radiobox__wrapper-field legend {
   margin-bottom: 40px;
 }
+.favorites .radiobox__wrapper-field label {
+  cursor: pointer;
+}
 .favorites .radiobox__wrapper-field input[type=radio] {
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -339,15 +369,13 @@ table {
   height: 17px;
   border-radius: 50%;
   position: relative;
-  margin-right: 20px;
+  margin-right: 15px;
   cursor: pointer;
 }
 .favorites .radiobox__wrapper-field input[type=radio]:checked::before {
   content: "";
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(45%, 45%);
   width: 7px;
   height: 7px;
   background-color: #000;
@@ -357,43 +385,63 @@ table {
   font-weight: bold;
 }
 .favorites .card-container {
+  display: flex;
+  position: relative;
   margin-top: 40px;
-  display: grid;
-  grid-template-columns: repeat(2, 550px);
-  grid-template-rows: repeat(2, auto);
-  grid-column-gap: 260px;
-  row-gap: 40px;
+  height: 1150px;
 }
 @media (max-width: 768px) {
   .favorites .card-container {
-    grid-template-columns: repeat(1, 550px);
     justify-content: center;
+    height: 2340px;
   }
 }
-.favorites .card-container__item {
+.favorites .card-container .winter, .favorites .card-container .spring,
+.favorites .card-container .summer, .favorites .card-container .autumn {
+  display: grid;
+  grid-template-columns: repeat(2, 550px);
+  grid-template-rows: repeat(2, 555px);
+  grid-column-gap: 260px;
+  row-gap: 40px;
+  position: absolute;
+  z-index: 0;
+  opacity: 0;
+}
+@media (max-width: 768px) {
+  .favorites .card-container .winter, .favorites .card-container .spring,
+  .favorites .card-container .summer, .favorites .card-container .autumn {
+    grid-template-columns: repeat(1, 550px);
+  }
+}
+.favorites .card-container .winter .book, .favorites .card-container .spring .book,
+.favorites .card-container .summer .book, .favorites .card-container .autumn .book {
   display: flex;
   border: 1px #000000 solid;
   padding: 15px;
   position: relative;
 }
-.favorites .card-container__item__info-wrapper {
+.favorites .card-container .winter .book .book-wrapper, .favorites .card-container .spring .book .book-wrapper,
+.favorites .card-container .summer .book .book-wrapper, .favorites .card-container .autumn .book .book-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-.favorites .card-container__item__info {
+.favorites .card-container .winter .book .book-info, .favorites .card-container .spring .book .book-info,
+.favorites .card-container .summer .book .book-info, .favorites .card-container .autumn .book .book-info {
   font-family: "Inter", sans-serif;
-  gap: 20px;
+  gap: 19px;
   display: flex;
   flex-direction: column;
 }
-.favorites .card-container__item__head {
+.favorites .card-container .winter .book .book-label, .favorites .card-container .spring .book .book-label,
+.favorites .card-container .summer .book .book-label, .favorites .card-container .autumn .book .book-label {
   font-family: "Forum", sans-serif;
   font-size: 20px;
   line-height: 40px;
   letter-spacing: 2px;
 }
-.favorites .card-container__item hr {
+.favorites .card-container .winter .book .book-label hr, .favorites .card-container .spring .book .book-label hr,
+.favorites .card-container .summer .book .book-label hr, .favorites .card-container .autumn .book .book-label hr {
   border: none;
   height: 1px;
   background-color: #BB945F;
@@ -401,21 +449,33 @@ table {
   left: 15px;
   width: 60px;
 }
-.favorites .card-container__item__title, .favorites .card-container__item__text {
+.favorites .card-container .winter .book .book-title,
+.favorites .card-container .winter .book .book-description, .favorites .card-container .spring .book .book-title,
+.favorites .card-container .spring .book .book-description,
+.favorites .card-container .summer .book .book-title,
+.favorites .card-container .summer .book .book-description, .favorites .card-container .autumn .book .book-title,
+.favorites .card-container .autumn .book .book-description {
   font-weight: bold;
   font-size: 15px;
   line-height: 40px;
   letter-spacing: 2px;
   text-transform: capitalize;
 }
-.favorites .card-container__item__title h5, .favorites .card-container__item__text h5 {
+.favorites .card-container .winter .book .book-title h5,
+.favorites .card-container .winter .book .book-description h5, .favorites .card-container .spring .book .book-title h5,
+.favorites .card-container .spring .book .book-description h5,
+.favorites .card-container .summer .book .book-title h5,
+.favorites .card-container .summer .book .book-description h5, .favorites .card-container .autumn .book .book-title h5,
+.favorites .card-container .autumn .book .book-description h5 {
   text-transform: uppercase;
 }
-.favorites .card-container__item__text {
+.favorites .card-container .winter .book .book-description, .favorites .card-container .spring .book .book-description,
+.favorites .card-container .summer .book .book-description, .favorites .card-container .autumn .book .book-description {
   font-weight: normal;
   max-width: 355px;
 }
-.favorites .card-container__item__btn {
+.favorites .card-container .winter .book .book-btn, .favorites .card-container .spring .book .book-btn,
+.favorites .card-container .summer .book .book-btn, .favorites .card-container .autumn .book .book-btn {
   margin-top: 15px;
   width: 75px;
   height: 30px;
@@ -428,7 +488,8 @@ table {
   background-color: #FFFFFF;
   cursor: pointer;
 }
-.favorites .card-container__item__image {
+.favorites .card-container .winter .book .book-image, .favorites .card-container .spring .book .book-image,
+.favorites .card-container .summer .book .book-image, .favorites .card-container .autumn .book .book-image {
   position: absolute;
   width: 200px;
   height: 300px;
