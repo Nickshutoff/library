@@ -3,7 +3,7 @@
     z-index: 1;
 }
   
-  @keyframes fadeIn {
+@keyframes fadeIn {
     from {
         opacity: 0;
     }
@@ -18,7 +18,7 @@
     z-index: 0;
 }
   
-  @keyframes fadeOut {
+@keyframes fadeOut {
     from {
         opacity: 1;
     }
