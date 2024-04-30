@@ -650,6 +650,9 @@ button:hover {
 .contacts__wrapper__text-staff {
   font-weight: normal;
 }
+.contacts__wrapper__text-staff h4 {
+  font-weight: bold;
+}
 .contacts__wrapper__text a[href^="mailto:"] {
   color: #000000;
   font-weight: bold;

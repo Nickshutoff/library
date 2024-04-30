@@ -48,7 +48,11 @@
             }
 
             &-staff {
-                font-weight: normal
+                font-weight: normal;
+
+                h4 {
+                    font-weight: bold;
+                }
             }
 
             a[href^="mailto:"] {
