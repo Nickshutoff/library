@@ -38,15 +38,24 @@
                 flex-direction: column;
                 gap: 20px;
 
-                &:hover {
-                    color: $sand;
+                a[href^="tel:"] {
+                    color: $black;
+                    &:hover {
+                        color: $sand;
+                    }
                 }
+                
             }
 
             &-staff {
+                font-weight: normal
+            }
+
+            a[href^="mailto:"] {
+                color: $black;
                 font-weight: bold;
-                span {
-                    font-weight: normal;
+                &:hover {
+                    color: $sand;
                 }
             }
         }

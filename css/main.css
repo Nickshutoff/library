@@ -641,14 +641,21 @@ button:hover {
   flex-direction: column;
   gap: 20px;
 }
-.contacts__wrapper__text-phones:hover, .contacts__wrapper__text-staff:hover {
+.contacts__wrapper__text-phones a[href^="tel:"], .contacts__wrapper__text-staff a[href^="tel:"] {
+  color: #000000;
+}
+.contacts__wrapper__text-phones a[href^="tel:"]:hover, .contacts__wrapper__text-staff a[href^="tel:"]:hover {
   color: #BB945F;
 }
 .contacts__wrapper__text-staff {
+  font-weight: normal;
+}
+.contacts__wrapper__text a[href^="mailto:"] {
+  color: #000000;
   font-weight: bold;
 }
-.contacts__wrapper__text-staff span {
-  font-weight: normal;
+.contacts__wrapper__text a[href^="mailto:"]:hover {
+  color: #BB945F;
 }
 @media (max-width: 768px) {
   .contacts__wrapper__map {
