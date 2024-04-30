@@ -1,3 +1,8 @@
+button:hover {
+    color: $sand;
+    border-color: $sand;
+}
+
 .fade-in {
     animation: fadeIn 0.5s forwards;
     z-index: 1;

@@ -130,6 +130,10 @@
                     background-color: $white;
                     cursor: pointer;
                 }
+
+                .book-btn:hover {
+                    background-color: $sand;
+                }
                 
                 .book-image {
                     position: absolute;
