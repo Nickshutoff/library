@@ -79,7 +79,6 @@
                     width: 242px;
                     height: 44px;
                     align-self: center;
-                    background-color: $white;
                     color: $dark;
                     border-radius: 2px;
                     font: {
@@ -90,6 +89,9 @@
                     line-height: 24px;
                     letter-spacing: 1px;
                     cursor: pointer;
+                    &:hover {
+                        color: $sand;
+                    }
                 }
 
                 &-profile {
@@ -147,7 +149,9 @@
             display: flex;
             gap: 20px;
 
-            .library-card__authorize-btn {
+            a {
+                text-align: center;
+                align-content: center;
                 font-family: $inter;
                 font-weight: bold;
                 font-size: 10px;
@@ -159,6 +163,9 @@
                 height: 30px;
                 background-color: $white;
                 cursor: pointer;
+                &:hover {
+                    color: $sand;
+                }
 
                 &.profile {
                     display: none;

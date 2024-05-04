@@ -129,11 +129,14 @@
                     letter-spacing: 1px;
                     background-color: $white;
                     cursor: pointer;
+                    &:hover {
+                        color: $sand;
+                    }
                 }
 
-                .book-btn:hover {
-                    background-color: $sand;
-                }
+                // .book-btn:hover {
+                //     background-color: $sand;
+                // }
                 
                 .book-image {
                     position: absolute;

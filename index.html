@@ -24,12 +24,88 @@
                 </ul>
             </nav>
             <div class="menu__profile">
-                <img src="./img/icons/icon_profile.png" alt="profile__icon" role="button">
+                <div class="menu__user">
+                    <div class="profile__icon">
+                        <div class="icon__no-auth"><img src="./img/icons/icon_profile.png" alt="profile__icon"></div>
+                        <div class="icon__auth"></div>
+                    </div>
+
+                    <div class="profile__no-auth">
+                        <span>Profile</span>
+                        <hr>
+                        <a class="profile__log-in">Log in</a>
+                        <a class="profile__register">Register</a>
+                    </div>
+
+                    <div class="profile__auth">
+                        <span>Profile</span>
+                        <hr>
+                        <a class="profile__log-out">Log out</a>
+                        <a class="profile__my-profile">My profile</a>
+                    </div>
+                </div>
             </div>
+
             <div class="menu__hamburger">
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
+            </div>
+        </div>
+
+        <div class="authorization">
+
+            <div class="modal__log-in">
+                <span class="log-in__text">LOGIN</span>
+                <img src="./img/icons/close_btn.svg" alt="close_btn" class="log-in__close">
+                <form action="/login" class="log-in__field" id="login">
+                    <div class="log-in__row">
+                        <label for="e-mail">E-mail or readers card</label>
+                        <input type="email" name="email" id="e-mail">
+                    </div>
+                    <div class="log-in__row">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password">
+                    </div>
+                    <input class="log-in__button" type="submit" value="Log in">
+                </form>
+                <div class="log-in__register">
+                    <span>Don't have an account?</span>
+                    <a class="profile__register">Register</a>
+                </div>
+            </div>
+
+            
+            <div class="modal__register">
+                <span class="register__text">REGISTER</span>
+                <img src="./img/icons/close_btn.svg" alt="close_btn" class="register__close">
+                <form action="/register" class="register__field" id="register">
+                    <div class="register__row">
+                        <label for="first-name">First name</label>
+                        <input type="first-name" name="first-name" id="first-name">
+                    </div>
+                    <div class="register__row">
+                        <label for="last-name">Last name</label>
+                        <input type="last-name" name="last-name" id="last-name">
+                    </div>
+                    <div class="register__row">
+                        <label for="e-mail">E-mail</label>
+                        <input type="email" name="email" id="e-mail">
+                    </div>
+                    <div class="register__row">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password">
+                    </div>
+                    <input class="register__button" type="submit" value="Log in">
+                    <div class="register__log-in">
+                        <span>Already have an account?</span>
+                        <a class="profile__log-in">Login</a>
+                    </div>
+                </form>
+            </div>
+            <!-- This will be shown AFTER logging -->
+            <div class="modal__profile">
+
             </div>
         </div>
     </header>
@@ -600,17 +676,17 @@
                             <div class="profile-visits">
                                 <h6>Visits</h6>
                                 <img src="./img/icons/visits.png" alt="visits-icon">
-                                <h6 id="user-visits-counter">228</h6>
+                                <span id="user-visits-counter"></span>
                             </div>
                             <div class="profile-bonuses">
                                 <h6>Bonuses</h6>
                                 <img src="./img/icons/bonuses.png" alt="bonuses-icon">
-                                <h6 id="user-bonuses-counter">1488</h6>
+                                <span id="user-bonuses-counter"></span>
                             </div>
                             <div class="profile-books">
                                 <h6>Books</h6>
                                 <img src="./img/icons/books.png" alt="books-icon">
-                                <h6 id="user-books-counter">666</h6>
+                                <span id="user-books-counter"></span>
                             </div>
                         </div>
                     </form>
@@ -620,10 +696,10 @@
                     <div class="library-card__authorize-description"><h5>You will be able to see a reader card after logging into account or you can register a new account</h5></div>
                     <div class="library-card__authorize-container">
                         <!-- This will be shown BEFORE logging -->
-                        <button class="library-card__authorize-btn" id="library-card__sign-up" type="button">Sign Up</button>
-                        <button class="library-card__authorize-btn" id="library-card__log-in" type="button">Log In</button>
+                        <a class="profile__register">Sign Up</a>
+                        <a class="profile__log-in">Log In</a>
                         <!-- This will be shown AFTER logging -->
-                        <button class="library-card__authorize-btn profile" id="library-card__profile" type="button">Profile</button>
+                        <a class="profile">Profile</a>
                     </div>
                 </div>
             </div>

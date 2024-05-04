@@ -24,10 +24,11 @@
 
             @include md {
                 display: flex;
+                order: 4;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                position: fixed;
+                position: absolute;
                 top: -100%;
                 right: 0;
                 z-index: 15;
@@ -61,10 +62,98 @@
             display: flex;
             align-items: center;
             z-index: 16;
-        }
-        
-        .menu__profile:hover {
-            cursor: pointer;
+
+            @include md {
+                order: 2;
+            }
+
+            .menu__user {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: relative;
+
+                .profile__icon {
+                    z-index: 15;
+                    cursor: pointer;
+
+                    .icon__no-auth {
+                        display: flex;
+                        height: 28px;
+                        width: 28px;
+
+                        &.logged {
+                            display: none;
+                        }
+                    }
+
+                    .icon__auth {
+                        display: none;
+                        height: 28px;
+                        width: 28px;
+                        align-items: center;
+                        justify-content: center;
+                        color: $sand;
+                        background-color: $white;
+                        border: 1px solid $white;
+                        border-radius: 50%;
+                        font-family: $inter;
+                        font-size: 15px;
+                        line-height: 20px;
+
+                        &.logged {
+                            display: flex;
+                        }
+                    }
+                }
+
+                .profile__no-auth,
+                .profile__auth {
+                    display: flex;
+                    flex-direction: column;
+                    position: absolute;
+                    align-items: center;
+                    top: -600%;
+                    right: -15px;
+                    width: 80px;
+                    height: 115px;
+                    padding: 5px 0px;
+                    z-index: -1;
+                    background-color: $white;
+                    font-size: 15px;
+                    font-family: $inter;
+                    line-height: 20px;
+                    color: $black;
+                    transition: all ease-in-out .3s;
+
+                    @include md {
+                        right: auto;
+                    }
+
+                    &.active {
+                        top: 55px;
+                    }
+
+                    span {
+                        font-weight: bold;
+                    }
+
+                    hr {
+                        height: 1px;
+                        width: 40px;
+                        background-color: $sand;
+                        border: none;
+                    }
+
+                    a {
+                        margin-top: 10px;
+                        cursor: pointer;
+                        &:hover {
+                            color: $sand;
+                        }
+                    }
+                }
+            }
         }
         
         .menu__hamburger {
@@ -72,6 +161,7 @@
 
             @include md {
                 display: flex;
+                order: 3;
                 flex-direction: column;
                 gap: 10px;
                 width: 45px;
@@ -101,6 +191,209 @@
             .active-hamburger-line-3 {
                 transform: translateY(-12px) rotateZ(-46deg);
             }
+        }
+    }
+
+    .authorization {
+        display: none; //none
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 500;
+        background-color: rgba(12, 12, 14, 0.5);
+
+        &.active {
+            display: flex;
+        }
+
+        .modal__log-in {
+            display: none;
+            flex-direction: column;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 250px;
+            height: 262px;
+            padding: 20px 25px;
+            margin-bottom: 10px;
+            z-index: 501;
+            background-color: $white;
+            color: $black;
+            font-family: $inter;
+
+            &.active {
+                display: flex;
+                justify-content: space-between
+            }
+
+            .log-in__text {
+                text-align: center;
+                font-family: $forum;
+                font-size: 20px;
+                line-height: 20px;
+                letter-spacing: 0.4px;
+            }
+
+            img {
+                position: absolute;
+                top: 15px;
+                right: 15px;
+                cursor: pointer;
+            }
+
+            form {
+                display: grid;
+
+                .log-in__row {
+                    margin-top: 10px;
+                    line-height: 20px;
+                }
+
+                label {
+                    margin-bottom: 10px;
+                    line-height: 20px;
+                }
+
+                input {
+                    margin-top: 10px;
+                    height: 20px;
+                    width: 100%;
+                    font-family: $inter;
+                    border-color: $sand;
+                    letter-spacing: 0.2px;
+                }
+
+                .log-in__button {
+                    background-color: $white;
+                    margin-top: 10px;
+                    width: 75px;
+                    height: 30px;
+                    border-radius: 2px;
+                    font-weight: bold;
+                    letter-spacing: 1px;
+                    &:hover {
+                        color: $sand;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .log-in__register {
+                display: flex;
+                margin-top: 10px;
+                gap: 10px;
+                font-size: 10px;
+                font-family: $inter;
+                line-height: 12px;
+                
+
+                a {
+                    text-decoration: underline;
+                    font-weight: bold;
+                    letter-spacing: 1px;
+                    cursor: pointer;
+                    &:hover {
+                        color: $sand;
+                    }
+                }
+            }
+        }
+
+        .modal__register {
+            display: none;
+            flex-direction: column;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 250px;
+            height: 382px;
+            padding: 20px 25px;
+            z-index: 501;
+            background-color: $white;
+            color: $black;
+            font-family: $inter;
+
+            &.active {
+                display: flex;
+            }
+
+            .register__text {
+                text-align: center;
+                font-family: $forum;
+                font-size: 20px;
+                line-height: 20px;
+                letter-spacing: 0.4px;
+                margin-bottom: 10px;
+            }
+
+            img {
+                position: absolute;
+                top: 15px;
+                right: 15px;
+                cursor: pointer;
+            }
+
+            form {
+                display: grid;
+
+                .register__row {
+                    margin-top: 10px;
+                    line-height: 20px;
+                }
+
+                label {
+                    margin-bottom: 10px;
+                    line-height: 20px;
+                }
+
+                input {
+                    margin-top: 10px;
+                    border-color: $sand;
+                    height: 20px;
+                    width: 100%;
+                }
+
+                .register__button {
+                    background-color: $white;
+                    margin-top: 10px;
+                    width: 75px;
+                    height: 30px;
+                    border-radius: 2px;
+                    font-weight: bold;
+                    letter-spacing: 1px;
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .register__log-in {
+                display: flex;
+                margin-top: 10px;
+                gap: 10px;
+                font-size: 10px;
+                font-family: $inter;
+                line-height: 12px;
+                
+
+                a {
+                    text-decoration: underline;
+                    font-weight: bold;
+                    letter-spacing: 1px;
+                    cursor: pointer;
+                    &:hover {
+                        color: $sand;
+                    }
+                }
+            }
+        }
+
+        .modal__profile {
+            display: none;
         }
     }
 }

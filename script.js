@@ -4,22 +4,115 @@ const hamburger = document.querySelector('.menu__hamburger')
 const hamburgerLines = document.querySelectorAll('.hamburger-line')
 const mobileMenu = document.querySelector('.menu__list')
 const mobileMenuLinks = document.querySelectorAll('.menu__link')
+const header = document.querySelector('.header')
 
-hamburger.addEventListener('click', () => {
+function toggleMobileMenu() {
     hamburgerLines.forEach((line, index) => {
         line.classList.toggle(`active-hamburger-line-${index + 1}`)
     })
     mobileMenu.classList.toggle('active')
+}
+
+hamburger.addEventListener('click', (toggleMobileMenu))
+
+mobileMenuLinks.forEach((link) => {
+    link.addEventListener('click', (toggleMobileMenu))
 })
 
-mobileMenuLinks.forEach(link => {
+//Close windows (if clicked outside)
+document.addEventListener('click', (event) => {
+    const menuClicked = event.target.closest('.menu__container')
+
+    if (mobileMenu.classList.contains('active') && !menuClicked) {
+        toggleMobileMenu()
+    }
+
+    const profileMenuClicked = event.target.closest('.menu__user')
+
+    if (modalUnauth.classList.contains('active') && !profileMenuClicked) {
+        toggleUnauthMenu()
+    }
+    if (modalAuth.classList.contains('active') && !profileMenuClicked) {
+        toggleAuthMenu()
+    }
+
+    if (modalUnauth.classList.contains('active') && modalLogIn.classList.contains('active')) {
+        toggleUnauthMenu()
+    }
+    if (modalUnauth.classList.contains('active') && modalRegister.classList.contains('active')) {
+        toggleUnauthMenu()
+    }
+
+    if (event.target === background && modalLogIn.classList.contains('active')){
+        toggleModalLogIn()
+    }
+    if (event.target === background && modalRegister.classList.contains('active')){
+        toggleModalRegister()
+    }
+
+})
+
+
+//Log-in dropdowns
+const iconUnlogged = document.querySelector('.icon__no-auth')
+const iconLogged = document.querySelector('.icon__auth')
+
+const modalUnauth = document.querySelector('.profile__no-auth')
+const logInLinks = document.querySelectorAll('.profile__log-in')
+const registerLinks = document.querySelectorAll('.profile__register')
+
+const modalAuth = document.querySelector('.profile__auth')
+const profileLinks = document.querySelectorAll('.profile__my-profile')
+const logOutLinks = document.querySelectorAll('.profile__log-out')
+
+function toggleUnauthMenu() {
+    modalUnauth.classList.toggle('active')
+}
+
+function toggleAuthMenu() {
+    modalAuth.classList.toggle('active')
+}
+
+iconUnlogged.addEventListener('click', (toggleUnauthMenu))
+iconLogged.addEventListener('click', (toggleAuthMenu))
+
+//Authorization windows
+const background = document.querySelector('.authorization')
+const modalLogIn = document.querySelector('.modal__log-in')
+const closeLogIn = document.querySelector('.log-in__close')
+
+const modalRegister = document.querySelector('.modal__register')
+const closeRegister = document.querySelector('.register__close')
+
+function toggleModalLogIn() {
+    background.classList.toggle('active')
+    modalLogIn.classList.toggle('active')
+}
+
+logInLinks.forEach((link) => {
     link.addEventListener('click', () => {
-        hamburgerLines.forEach((line, index) => {
-            line.classList.remove(`active-hamburger-line-${index + 1}`)
-        })
-        mobileMenu.classList.remove('active')
+        toggleModalLogIn()
+        if (modalRegister.classList.contains('active')){
+            toggleModalRegister()
+        }
     })
 })
+closeLogIn.addEventListener('click', (toggleModalLogIn))
+
+function toggleModalRegister() {
+    background.classList.toggle('active')
+    modalRegister.classList.toggle('active')
+}
+
+registerLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+        toggleModalRegister()
+        if (modalLogIn.classList.contains('active')){
+            toggleModalLogIn()
+        }
+    })
+})
+closeRegister.addEventListener('click', (toggleModalRegister))
 
 // About
 const carouselBtn = document.querySelectorAll('.carousel-btn')
@@ -76,3 +169,10 @@ radioBtn.forEach((btn, index) => {
         seasons[index].classList.add('fade-in')
     })
 })
+
+//Registration
+const registerForm = document.getElementById('register')
+const registerFormFields = registerForm.elements
+const loginForm = document.getElementById('login')
+const loginFormFields = loginForm.elements
+
