@@ -96,7 +96,7 @@
                         <label for="password">Password</label>
                         <input type="password" name="password" id="password">
                     </div>
-                    <input class="register__button" type="submit" value="Log in">
+                    <input class="register__button" type="submit" value="Sign up">
                     <div class="register__log-in">
                         <span>Already have an account?</span>
                         <a class="profile__log-in">Login</a>
@@ -104,9 +104,33 @@
                 </form>
             </div>
             <!-- This will be shown AFTER logging -->
-            <div class="modal__profile">
-
-            </div>
+            <!-- <div class="modal__profile">
+                <img src="./img/icons/close_btn.svg" alt="close_btn" class="profile__close">
+                <div class="profile__user">
+                    <div class="user-icon">AA</div>
+                    <div class="user-name">Nikita Shutov</div>
+                </div>
+                <div class="profile__info">
+                    <span class="profile-title">MY PROFILE</span>
+                    <div class="profile-statistics">
+                        <div class="profile-visits">
+                            <h6>Visits</h6>
+                            <img src="./img/icons/visits.png" alt="visits-icon">
+                            <span id="user-visits-counter">?</span>
+                        </div>
+                        <div class="profile-bonuses">
+                            <h6>Bonuses</h6>
+                            <img src="./img/icons/bonuses.png" alt="bonuses-icon">
+                            <span id="user-bonuses-counter">?</span>
+                        </div>
+                        <div class="profile-books">
+                            <h6>Books</h6>
+                            <img src="./img/icons/books.png" alt="books-icon">
+                            <span id="user-books-counter">?</span>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
         </div>
     </header>
     <main>
@@ -696,10 +720,10 @@
                     <div class="library-card__authorize-description"><h5>You will be able to see a reader card after logging into account or you can register a new account</h5></div>
                     <div class="library-card__authorize-container">
                         <!-- This will be shown BEFORE logging -->
-                        <a class="profile__register">Sign Up</a>
-                        <a class="profile__log-in">Log In</a>
+                        <a class="profile__register unlogged">Sign Up</a>
+                        <a class="profile__log-in unlogged">Log In</a>
                         <!-- This will be shown AFTER logging -->
-                        <a class="profile">Profile</a>
+                        <a class="profile__my-profile unlogged">Profile</a>
                     </div>
                 </div>
             </div>

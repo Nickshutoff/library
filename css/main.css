@@ -473,7 +473,86 @@ button:hover {
   color: #BB945F;
 }
 .header .authorization .modal__profile {
-  display: none;
+  display: flex;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 400px;
+  z-index: 501;
+  background-color: #FFFFFF;
+  color: #000000;
+}
+.header .authorization .modal__profile .profile__close {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  cursor: pointer;
+}
+.header .authorization .modal__profile .profile__user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 170px;
+  gap: 15px;
+  background-color: #000000;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  line-height: 20px;
+}
+.header .authorization .modal__profile .profile__user .user-icon {
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  align-content: center;
+  background-color: #FFFFFF;
+  color: #BB945F;
+}
+.header .authorization .modal__profile .profile__user .user-name {
+  width: 120px;
+  height: -moz-max-content;
+  height: max-content;
+  text-align: center;
+  align-content: center;
+  background-color: #FFFFFF;
+  color: #000000;
+}
+.header .authorization .modal__profile .profile__info {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 20px;
+}
+.header .authorization .modal__profile .profile__info .profile-title {
+  font-family: "Forum", sans-serif;
+  font-size: 40px;
+  line-height: 20px;
+  letter-spacing: 0.4px;
+  margin-bottom: 10px;
+}
+.header .authorization .modal__profile .profile__info .profile-statistics {
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+  margin-top: 40px;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  line-height: 20px;
+  letter-spacing: 2%;
+}
+.header .authorization .modal__profile .profile__info .profile-statistics .profile-visits,
+.header .authorization .modal__profile .profile__info .profile-statistics .profile-bonuses,
+.header .authorization .modal__profile .profile__info .profile-statistics .profile-books {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 13px;
+}
+.header .authorization .modal__profile .profile__info .profile-statistics .profile-visits span,
+.header .authorization .modal__profile .profile__info .profile-statistics .profile-bonuses span,
+.header .authorization .modal__profile .profile__info .profile-statistics .profile-books span {
+  font-size: 10px;
 }
 
 .welcome {
@@ -1030,6 +1109,9 @@ button:hover {
 .library-card__check-form .library-card__form-button:hover {
   color: #BB945F;
 }
+.library-card__check-form .library-card__form-button.active {
+  display: none;
+}
 .library-card__check-form .library-card__form-profile {
   display: none;
   justify-content: center;
@@ -1038,6 +1120,9 @@ button:hover {
   font-size: 10px;
   line-height: 20px;
   letter-spacing: 2%;
+}
+.library-card__check-form .library-card__form-profile.active {
+  display: flex;
 }
 .library-card__check-form .library-card__form-profile .profile-visits,
 .library-card__check-form .library-card__form-profile .profile-bonuses,
@@ -1099,7 +1184,13 @@ button:hover {
 .library-card__authorize-container a:hover {
   color: #BB945F;
 }
-.library-card__authorize-container a.profile {
+.library-card__authorize-container a.profile__my-profile {
+  display: none;
+}
+.library-card__authorize-container a.profile__my-profile.logged {
+  display: block;
+}
+.library-card__authorize-container a.profile__register.logged, .library-card__authorize-container a.profile__log-in.logged {
   display: none;
 }
 

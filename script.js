@@ -19,7 +19,7 @@ mobileMenuLinks.forEach((link) => {
     link.addEventListener('click', (toggleMobileMenu))
 })
 
-//Close windows (if clicked outside)
+//Close windows (if...)
 document.addEventListener('click', (event) => {
     const menuClicked = event.target.closest('.menu__container')
 
@@ -43,11 +43,15 @@ document.addEventListener('click', (event) => {
         toggleUnauthMenu()
     }
 
-    if (event.target === background && modalLogIn.classList.contains('active')){
+    if (event.target === background && modalLogIn.classList.contains('active')) {
         toggleModalLogIn()
     }
-    if (event.target === background && modalRegister.classList.contains('active')){
+    if (event.target === background && modalRegister.classList.contains('active') ){
         toggleModalRegister()
+    }
+
+    if (background.classList.contains('active') && background.classList.contains('active')) {
+        toggleMobileMenu()
     }
 
 })
@@ -114,6 +118,134 @@ registerLinks.forEach((link) => {
 })
 closeRegister.addEventListener('click', (toggleModalRegister))
 
+//REGISTRATION
+const registerForm = document.getElementById('register')
+const registerFormFields = registerForm.elements
+
+let users = []
+if (localStorage.getItem('users')) {
+    users = JSON.parse(localStorage.getItem('users'))
+}
+
+registerForm.addEventListener('submit', function(event) {
+    event.preventDefault()
+  
+    const firstName = registerFormFields['first-name'].value
+    const lastName = registerFormFields['last-name'].value
+    const fullName = `${firstName} ${lastName}`
+    const email = registerFormFields['e-mail'].value
+    const password = registerFormFields['password'].value
+    const cardNumber = Math.floor(Math.random() * 0x1000000000).toString(16).padStart(9, '0').toUpperCase()
+    let visitsCount = 0
+    let booksRent = []
+    let bonuses = 0
+  
+    const user = {
+        firstName,
+        lastName,
+        fullName,
+        email,
+        password,
+        cardNumber,
+        visitsCount,
+        booksRent,
+        bonuses
+    }
+
+    if (password.length < 8) {
+        alert('Password must contain at least 8 symbols')
+        return
+    }
+
+    if (users.some(user => user.email === email)) {
+        alert('E-mail already exists')
+        return
+    }
+
+    users.push(user)
+    localStorage.setItem('users', JSON.stringify(users))
+    alert('Registration successful!')
+    toggleModalRegister()
+})
+
+//LOGIN
+const loginForm = document.getElementById('login')
+const loginFormFields = loginForm.elements
+
+function iconChange() {
+    iconUnlogged.classList.toggle('logged')
+    iconLogged.classList.toggle('logged')
+}
+
+const libraryCardBtn = document.querySelector('.library-card__form-button')
+const libraryCardForm = document.querySelector('.library-card__form-profile')
+function libraryCardToggle() {
+    libraryCardBtn.classList.toggle('active')
+    libraryCardForm.classList.toggle('active')
+}
+
+loginForm.addEventListener('submit', function(event) {
+    event.preventDefault()
+    
+    const emailLogin = loginFormFields['e-mail'].value
+    const passwordLogin = loginFormFields['password'].value
+    const currentUser = users.find(user => user.email === emailLogin && user.password === passwordLogin)
+    const userIcon = document.querySelector('.icon__auth')
+
+    if (currentUser) {
+        toggleModalLogIn()
+        iconChange()
+        let initials = `${currentUser.firstName[0]}${currentUser.lastName[0]}`
+        userIcon.innerHTML = initials
+        currentUser.visitsCount += 1
+        const updatedUsers = users.map(user => user.email === currentUser.email ? currentUser : user)
+        localStorage.setItem('users', JSON.stringify(updatedUsers))
+        localStorage.setItem('currentUser', JSON.stringify(currentUser))
+        libraryCardToggle()
+        changeLibrarycardsLinks(registerLinks)
+        changeLibrarycardsLinks(profileLinks)
+        changeLibrarycardsLinks(logInLinks)
+        alert('Login successful!')
+    } else {
+        alert('Invalid e-mail or password!')
+        return
+    }
+})
+
+
+
+//LOG OUT
+function loggedOut() {
+    iconUnlogged.classList.toggle('logged')
+    iconLogged.classList.toggle('logged')
+}
+
+function changeLibrarycardsLinks(elements) {
+    elements.forEach((element) => {
+        if (element.classList.contains('logged')){
+            element.classList.replace('logged', 'unlogged')
+        }
+        else if (element.classList.contains('unlogged')) {
+            element.classList.replace('unlogged', 'logged')
+        }
+    })
+}
+
+logOutLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+        loggedOut()
+        localStorage.removeItem('currentUser')
+        changeLibrarycardsLinks(registerLinks)
+        changeLibrarycardsLinks(profileLinks)
+        changeLibrarycardsLinks(logInLinks)
+        libraryCardToggle()
+        if (modalAuth.classList.contains('active')){
+            toggleAuthMenu()
+        }
+        alert('Logged out')
+    })
+})
+
 // About
 const carouselBtn = document.querySelectorAll('.carousel-btn')
 const carousel = document.querySelector('.carousel-content')
@@ -169,10 +301,3 @@ radioBtn.forEach((btn, index) => {
         seasons[index].classList.add('fade-in')
     })
 })
-
-//Registration
-const registerForm = document.getElementById('register')
-const registerFormFields = registerForm.elements
-const loginForm = document.getElementById('login')
-const loginFormFields = loginForm.elements
-

@@ -393,7 +393,92 @@
         }
 
         .modal__profile {
-            display: none;
+            display: flex;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 400px;
+            // padding: 20px 25px;
+            z-index: 501;
+            background-color: $white;
+            color: $black;
+
+            .profile__close {
+                position: absolute;
+                top: 25px;
+                right: 25px;
+                cursor: pointer;
+            }
+
+            .profile__user {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 170px;
+                gap: 15px;
+                background-color: $black;
+                font-family: $inter;
+                font-size: 20px;
+                line-height: 20px;
+
+                .user-icon {
+                    width: 80px;
+                    height: 80px;
+                    text-align: center;
+                    align-content: center;
+                    background-color: $white;
+                    color: $sand;
+                }
+
+                .user-name {
+                    width: 120px;
+                    height: max-content;
+                    text-align: center;
+                    align-content: center;
+                    background-color: $white;
+                    color: $black;
+                }
+            }
+
+            .profile__info {
+                display: flex;
+                flex-direction: column;
+                padding: 40px 20px;
+
+                .profile-title {
+                    font-family: $forum;
+                    font-size: 40px;
+                    line-height: 20px;
+                    letter-spacing: 0.4px;
+                    margin-bottom: 10px;
+                }
+                .profile-statistics {
+                    display: flex;
+                    justify-content: center;
+                    gap: 35px;
+                    margin-top: 40px;
+                    font-family: $inter;
+                    font-size: 20px;
+                    line-height: 20px;
+                    letter-spacing: 2%;
+
+                    .profile-visits,
+                    .profile-bonuses,
+                    .profile-books {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 13px;
+                        
+                        span {
+                            font-size: 10px;
+                        }
+                    }
+                }
+            }
         }
     }
 }

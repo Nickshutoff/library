@@ -92,6 +92,10 @@
                     &:hover {
                         color: $sand;
                     }
+
+                    &.active {
+                        display: none;
+                    }
                 }
 
                 &-profile {
@@ -102,6 +106,10 @@
                     font-size: 10px;
                     line-height: 20px;
                     letter-spacing: 2%;
+
+                    &.active {
+                        display: flex;
+                    }
 
                     .profile-visits,
                     .profile-bonuses,
@@ -163,12 +171,23 @@
                 height: 30px;
                 background-color: $white;
                 cursor: pointer;
+
                 &:hover {
                     color: $sand;
                 }
-
-                &.profile {
+            
+                &.profile__my-profile {
                     display: none;
+                    &.logged {
+                        display: block;
+                    }
+                }
+
+                &.profile__register,
+                &.profile__log-in {
+                    &.logged {
+                        display: none;
+                    }
                 }
             }
         }
