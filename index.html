@@ -38,7 +38,7 @@
                     </div>
 
                     <div class="profile__auth">
-                        <span>Profile</span>
+                        <span class="user-card-number">Profile</span>
                         <hr>
                         <a class="profile__log-out">Log out</a>
                         <a class="profile__my-profile">My profile</a>
@@ -104,11 +104,11 @@
                 </form>
             </div>
             <!-- This will be shown AFTER logging -->
-            <!-- <div class="modal__profile">
+            <div class="modal__profile">
                 <img src="./img/icons/close_btn.svg" alt="close_btn" class="profile__close">
                 <div class="profile__user">
-                    <div class="user-icon">AA</div>
-                    <div class="user-name">Nikita Shutov</div>
+                    <div class="icon__auth"></div>
+                    <div class="user-full-name"></div>
                 </div>
                 <div class="profile__info">
                     <span class="profile-title">MY PROFILE</span>
@@ -116,21 +116,74 @@
                         <div class="profile-visits">
                             <h6>Visits</h6>
                             <img src="./img/icons/visits.png" alt="visits-icon">
-                            <span id="user-visits-counter">?</span>
+                            <span class="user-visits-counter"></span>
                         </div>
                         <div class="profile-bonuses">
                             <h6>Bonuses</h6>
                             <img src="./img/icons/bonuses.png" alt="bonuses-icon">
-                            <span id="user-bonuses-counter">?</span>
+                            <span class="user-bonuses-counter"></span>
                         </div>
                         <div class="profile-books">
                             <h6>Books</h6>
                             <img src="./img/icons/books.png" alt="books-icon">
-                            <span id="user-books-counter">?</span>
+                            <span class="user-books-counter"></span>
                         </div>
                     </div>
+                    <div class="profile-rented">
+                        <h6>Rented books</h6>
+                        <ul class="rented-list">
+                            <!-- ADD HERE -->
+                        </ul>
+                    </div>
+                    <div class="profile-card-number">
+                        <h6>Card number</h6>
+                        <span class="user-card-number"></span>
+                        <img src="./img/icons/icon copy.svg" alt="copy number">
+                    </div>
                 </div>
-            </div> -->
+            </div>
+            <div class="modal__buy">
+                <img src="./img/icons/close_btn.svg" alt="close_btn" class="buy__close">
+                <span class="buy__text">BUY A LIBRARY CARD</span>
+                <div class="buy__content">
+                    <form action="/buy" class="buy__form" id="buy">
+                        <div class="buy__row">
+                            <label for="bank-card-number">Bank card number</label>
+                            <input type="bank-card-number" name="bank-card-number" id="bank-card-number">
+                        </div>
+                        <div class="buy__row">
+                            <label for="bank-card-exp">Expiration code</label>
+                            <div class="buy__row__exp-inputs">
+                                <input type="bank-card-exp-code-month" name="bank-card-exp-code-month" id="bank-card-exp-code-month">
+                                <input type="bank-card-exp-code-year" name="bank-card-exp-code-year" id="bank-card-exp-code-year">
+                            </div>
+                        </div>
+                        <div class="buy__row cvc">
+                            <label for="bank-card-cvc">CVC</label>
+                            <input type="bank-card-cvc" name="bank-card-cvc" id="bank-card-cvc">
+                        </div>
+                        <div class="buy__row second">
+                            <label for="bank-card-name">Cardholder name</label>
+                            <input type="bank-card-name" name="bank-card-name" id="bank-card-name">
+                        </div>
+                        <div class="buy__row">
+                            <label for="bank-postal-code">Postal code</label>
+                            <input type="bank-postal-code" name="bank-postal-code" id="bank-postal-code">
+                        </div>
+                        <div class="buy__row">
+                            <label for="bank-city">City / Town</label>
+                            <input type="bank-city" name="bank-city" id="bank-city">
+                        </div>
+                        <div class="buy__row__sumbit">
+                            <input class="buy__button" type="submit" value="Buy">
+                            <span class="buy__price">$ 25.00</span>
+                        </div>
+                    </form>
+                    <span class="buy__info">
+                        If you are live, work, attend school, or pay property taxes in New York State, you can get a $25 digital library card right now using this online form. Visitors to New York State can also use this form to apply for a temporary card.
+                    </span>
+                </div>
+            </div>
         </div>
     </header>
     <main>
@@ -700,17 +753,17 @@
                             <div class="profile-visits">
                                 <h6>Visits</h6>
                                 <img src="./img/icons/visits.png" alt="visits-icon">
-                                <span id="user-visits-counter"></span>
+                                <span class="user-visits-counter"></span>
                             </div>
                             <div class="profile-bonuses">
                                 <h6>Bonuses</h6>
                                 <img src="./img/icons/bonuses.png" alt="bonuses-icon">
-                                <span id="user-bonuses-counter"></span>
+                                <span class="user-bonuses-counter"></span>
                             </div>
                             <div class="profile-books">
                                 <h6>Books</h6>
                                 <img src="./img/icons/books.png" alt="books-icon">
-                                <span id="user-books-counter"></span>
+                                <span class="user-books-counter"></span>
                             </div>
                         </div>
                     </form>

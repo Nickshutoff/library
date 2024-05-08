@@ -473,7 +473,7 @@ button:hover {
   color: #BB945F;
 }
 .header .authorization .modal__profile {
-  display: flex;
+  display: none;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -483,6 +483,9 @@ button:hover {
   z-index: 501;
   background-color: #FFFFFF;
   color: #000000;
+}
+.header .authorization .modal__profile.active {
+  display: flex;
 }
 .header .authorization .modal__profile .profile__close {
   position: absolute;
@@ -502,7 +505,7 @@ button:hover {
   font-size: 20px;
   line-height: 20px;
 }
-.header .authorization .modal__profile .profile__user .user-icon {
+.header .authorization .modal__profile .profile__user .icon__auth {
   width: 80px;
   height: 80px;
   text-align: center;
@@ -510,7 +513,7 @@ button:hover {
   background-color: #FFFFFF;
   color: #BB945F;
 }
-.header .authorization .modal__profile .profile__user .user-name {
+.header .authorization .modal__profile .profile__user .user-full-name {
   width: 120px;
   height: -moz-max-content;
   height: max-content;
@@ -522,6 +525,7 @@ button:hover {
 .header .authorization .modal__profile .profile__info {
   display: flex;
   flex-direction: column;
+  width: 100%;
   padding: 40px 20px;
 }
 .header .authorization .modal__profile .profile__info .profile-title {
@@ -533,7 +537,6 @@ button:hover {
 }
 .header .authorization .modal__profile .profile__info .profile-statistics {
   display: flex;
-  justify-content: center;
   gap: 35px;
   margin-top: 40px;
   font-family: "Inter", sans-serif;
@@ -553,6 +556,149 @@ button:hover {
 .header .authorization .modal__profile .profile__info .profile-statistics .profile-bonuses span,
 .header .authorization .modal__profile .profile__info .profile-statistics .profile-books span {
   font-size: 10px;
+}
+.header .authorization .modal__profile .profile__info .profile-rented {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  gap: 30px;
+  font-family: "Inter", sans-serif;
+}
+.header .authorization .modal__profile .profile__info .profile-rented h6 {
+  font-size: 25px;
+  line-height: 20px;
+}
+.header .authorization .modal__profile .profile__info .profile-rented .rented-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  height: 80px;
+  overflow: scroll;
+  list-style: circle;
+}
+.header .authorization .modal__profile .profile__info .profile-rented .rented-list li {
+  font-size: 20px;
+  line-height: 20px;
+  letter-spacing: 2px;
+}
+.header .authorization .modal__profile .profile__info .profile-card-number {
+  display: flex;
+  gap: 15px;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  line-height: 20px;
+}
+.header .authorization .modal__profile .profile__info .profile-card-number span {
+  color: #BB945F;
+}
+.header .authorization .modal__profile .profile__info .profile-card-number img:hover {
+  cursor: pointer;
+}
+.header .authorization .modal__buy {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 650px;
+  height: 540px;
+  z-index: 501;
+  background-color: #FFFFFF;
+  color: #000000;
+}
+.header .authorization .modal__buy.active {
+  display: flex;
+}
+.header .authorization .modal__buy .buy__close {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  filter: invert(1);
+  cursor: pointer;
+}
+.header .authorization .modal__buy .buy__text {
+  text-align: center;
+  align-content: center;
+  height: 60px;
+  background-color: #000000;
+  color: #FFFFFF;
+  font-family: "Forum", sans-serif;
+  font-size: 40px;
+  line-height: 20px;
+  letter-spacing: 0.4px;
+}
+.header .authorization .modal__buy .buy__content {
+  display: flex;
+  gap: 40px;
+  padding: 30px 40px;
+}
+.header .authorization .modal__buy .buy__content form {
+  display: grid;
+  width: 200px;
+}
+.header .authorization .modal__buy .buy__content form .buy__row {
+  line-height: 20px;
+}
+.header .authorization .modal__buy .buy__content form .buy__row__exp-inputs {
+  display: flex;
+  gap: 10px;
+}
+.header .authorization .modal__buy .buy__content form .buy__row__exp-inputs input {
+  width: 45px;
+}
+.header .authorization .modal__buy .buy__content form .buy__row.cvc {
+  width: 45px;
+}
+.header .authorization .modal__buy .buy__content form .buy__row.second {
+  margin-top: 10px;
+}
+.header .authorization .modal__buy .buy__content form .buy__row__sumbit {
+  display: flex;
+  gap: 25px;
+}
+.header .authorization .modal__buy .buy__content form .buy__row__sumbit span {
+  text-align: center;
+  align-content: center;
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 20px;
+  letter-spacing: 2px;
+}
+.header .authorization .modal__buy .buy__content form label {
+  margin-bottom: 10px;
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  letter-spacing: 2%;
+  line-height: 20px;
+}
+.header .authorization .modal__buy .buy__content form input {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-color: #BB945F;
+  height: 20px;
+  width: 100%;
+}
+.header .authorization .modal__buy .buy__content form .buy__button {
+  background-color: #FFFFFF;
+  margin-top: 10px;
+  width: 75px;
+  height: 30px;
+  border-radius: 2px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.header .authorization .modal__buy .buy__content form .buy__button:hover {
+  cursor: pointer;
+}
+.header .authorization .modal__buy .buy__content .buy__info {
+  width: 330px;
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: 2px;
 }
 
 .welcome {

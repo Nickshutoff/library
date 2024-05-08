@@ -49,9 +49,18 @@ document.addEventListener('click', (event) => {
     if (event.target === background && modalRegister.classList.contains('active') ){
         toggleModalRegister()
     }
+    if (event.target === background && modalProfile.classList.contains('active') ){
+        toggleModalProfile()
+    }
+    // if (event.target === background && modalBuy.classList.contains('active') ){
+    //     toggleModalBuy()
+    // }
 
-    if (background.classList.contains('active') && background.classList.contains('active')) {
+    if (background.classList.contains('active') && mobileMenu.classList.contains('active')) {
         toggleMobileMenu()
+    }
+    if (background.classList.contains('active') && modalAuth.classList.contains('active')) {
+        toggleAuthMenu()
     }
 
 })
@@ -123,6 +132,7 @@ const registerForm = document.getElementById('register')
 const registerFormFields = registerForm.elements
 
 let users = []
+let currentUser = null
 if (localStorage.getItem('users')) {
     users = JSON.parse(localStorage.getItem('users'))
 }
@@ -136,9 +146,11 @@ registerForm.addEventListener('submit', function(event) {
     const email = registerFormFields['e-mail'].value
     const password = registerFormFields['password'].value
     const cardNumber = Math.floor(Math.random() * 0x1000000000).toString(16).padStart(9, '0').toUpperCase()
-    let visitsCount = 0
+    let visitsCount = 1
     let booksRent = []
     let bonuses = 0
+
+    //ADD VARIABLES FOR USER'S BANK INFO!!!
   
     const user = {
         firstName,
@@ -190,14 +202,37 @@ loginForm.addEventListener('submit', function(event) {
     const emailLogin = loginFormFields['e-mail'].value
     const passwordLogin = loginFormFields['password'].value
     const currentUser = users.find(user => user.email === emailLogin && user.password === passwordLogin)
-    const userIcon = document.querySelector('.icon__auth')
+    
+    const userIcon = document.querySelectorAll('.icon__auth')
+    const userFullName = document.querySelector('.user-full-name')
+    const userCardNumber = document.querySelectorAll('.user-card-number')
+    const userVisitsCount = document.querySelectorAll('.user-visits-counter')
+    const userBonusesCount = document.querySelectorAll('.user-bonuses-counter')
+    const userBooksCount = document.querySelectorAll('.user-books-counter')
 
     if (currentUser) {
         toggleModalLogIn()
         iconChange()
+        
         let initials = `${currentUser.firstName[0]}${currentUser.lastName[0]}`
-        userIcon.innerHTML = initials
+        userIcon.forEach(element => {
+            element.innerHTML = initials
+        })
         currentUser.visitsCount += 1
+        userVisitsCount.forEach(element => {
+            element.innerHTML = currentUser.visitsCount
+        })
+        userBonusesCount.forEach(element => {
+            element.innerHTML = currentUser.bonuses
+        })
+        userBooksCount.forEach(element => {
+            element.innerHTML = currentUser.booksRent.length
+        })
+        userCardNumber.forEach(element => {
+            element.innerHTML = currentUser.cardNumber
+        })
+        userFullName.innerHTML = currentUser.fullName
+        
         const updatedUsers = users.map(user => user.email === currentUser.email ? currentUser : user)
         localStorage.setItem('users', JSON.stringify(updatedUsers))
         localStorage.setItem('currentUser', JSON.stringify(currentUser))
@@ -212,6 +247,38 @@ loginForm.addEventListener('submit', function(event) {
     }
 })
 
+//PROFILE
+const modalProfile = document.querySelector('.modal__profile')
+const closeProfile = document.querySelector('.profile__close')
+
+function toggleModalProfile() {
+    background.classList.toggle('active')
+    modalProfile.classList.toggle('active')
+}
+
+closeProfile.addEventListener('click', toggleModalProfile)
+
+profileLinks.forEach((link) => {
+    link.addEventListener('click', toggleModalProfile)
+})
+
+//BUY
+const modalBuy = document.querySelector('.modal__buy')
+const closeBuy = document.querySelector('.buy__close')
+const buyBookBtns = document.querySelectorAll('.book-btn')
+
+function toggleModalBuy() {
+    background.classList.toggle('active')
+    modalBuy.classList.toggle('active')
+}
+
+closeBuy.addEventListener('click', toggleModalBuy)
+
+buyBookBtns.forEach((btn) => {
+    if (currentUser && currentUser.booksRent.length === 0) {
+        btn.addEventListener('click', toggleModalBuy())
+    }
+})
 
 
 //LOG OUT
