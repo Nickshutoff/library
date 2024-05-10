@@ -353,6 +353,8 @@
                 input {
                     margin-top: 10px;
                     border-color: $sand;
+                    font-family: $inter;
+                    appearance: textfield;
                     height: 20px;
                     width: 100%;
                 }
@@ -584,7 +586,9 @@
                             gap: 10px;
 
                             input {
+                                font-family: $inter;
                                 width: 45px;
+                                appearance: textfield;
                             }
                         }
 
@@ -626,6 +630,8 @@
                         border-color: $sand;
                         height: 20px;
                         width: 100%;
+                        font-family: $inter;
+                        appearance: textfield;
                     }
     
                     .buy__button {
@@ -633,11 +639,14 @@
                         margin-top: 10px;
                         width: 75px;
                         height: 30px;
+                        border-color: $black;
                         border-radius: 2px;
                         font-weight: bold;
                         letter-spacing: 1px;
                         &:hover {
                             cursor: pointer;
+                            color: $sand;
+                            border-color: $sand;
                         }
                     }
                 }

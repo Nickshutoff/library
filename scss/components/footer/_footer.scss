@@ -42,5 +42,12 @@
         font-size: 20px;
         line-height: 200%;
         letter-spacing: 2px;
+
+        a {
+            color: inherit;
+            &:hover {
+                color: $sand;
+            }
+        }
     }
 }

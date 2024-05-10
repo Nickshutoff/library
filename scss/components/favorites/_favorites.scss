@@ -130,6 +130,7 @@
                     background-color: $white;
                     cursor: pointer;
                     &:hover {
+                        border-color: $sand;
                         color: $sand;
                     }
                 }

@@ -440,6 +440,10 @@ button:hover {
 .header .authorization .modal__register form input {
   margin-top: 10px;
   border-color: #BB945F;
+  font-family: "Inter", sans-serif;
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
   height: 20px;
   width: 100%;
 }
@@ -646,7 +650,11 @@ button:hover {
   gap: 10px;
 }
 .header .authorization .modal__buy .buy__content form .buy__row__exp-inputs input {
+  font-family: "Inter", sans-serif;
   width: 45px;
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
 }
 .header .authorization .modal__buy .buy__content form .buy__row.cvc {
   width: 45px;
@@ -680,18 +688,25 @@ button:hover {
   border-color: #BB945F;
   height: 20px;
   width: 100%;
+  font-family: "Inter", sans-serif;
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
 }
 .header .authorization .modal__buy .buy__content form .buy__button {
   background-color: #FFFFFF;
   margin-top: 10px;
   width: 75px;
   height: 30px;
+  border-color: #000000;
   border-radius: 2px;
   font-weight: bold;
   letter-spacing: 1px;
 }
 .header .authorization .modal__buy .buy__content form .buy__button:hover {
   cursor: pointer;
+  color: #BB945F;
+  border-color: #BB945F;
 }
 .header .authorization .modal__buy .buy__content .buy__info {
   width: 330px;
@@ -998,6 +1013,7 @@ button:hover {
 }
 .favorites .card-container .winter .book .book-btn:hover, .favorites .card-container .spring .book .book-btn:hover,
 .favorites .card-container .summer .book .book-btn:hover, .favorites .card-container .autumn .book .book-btn:hover {
+  border-color: #BB945F;
   color: #BB945F;
 }
 .favorites .card-container .winter .book .book-image, .favorites .card-container .spring .book .book-image,
@@ -1253,6 +1269,7 @@ button:hover {
   cursor: pointer;
 }
 .library-card__check-form .library-card__form-button:hover {
+  border-color: #BB945F;
   color: #BB945F;
 }
 .library-card__check-form .library-card__form-button.active {
@@ -1328,6 +1345,7 @@ button:hover {
   cursor: pointer;
 }
 .library-card__authorize-container a:hover {
+  border-color: #BB945F;
   color: #BB945F;
 }
 .library-card__authorize-container a.profile__my-profile {
@@ -1379,4 +1397,10 @@ button:hover {
   font-size: 20px;
   line-height: 200%;
   letter-spacing: 2px;
+}
+.footer-copyright a {
+  color: inherit;
+}
+.footer-copyright a:hover {
+  color: #BB945F;
 }/*# sourceMappingURL=main.css.map */

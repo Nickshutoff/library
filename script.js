@@ -52,9 +52,9 @@ document.addEventListener('click', (event) => {
     if (event.target === background && modalProfile.classList.contains('active') ){
         toggleModalProfile()
     }
-    // if (event.target === background && modalBuy.classList.contains('active') ){
-    //     toggleModalBuy()
-    // }
+    if (event.target === background && modalBuy.classList.contains('active') ){
+        toggleModalBuy()
+    }
 
     if (background.classList.contains('active') && mobileMenu.classList.contains('active')) {
         toggleMobileMenu()
@@ -64,7 +64,6 @@ document.addEventListener('click', (event) => {
     }
 
 })
-
 
 //Log-in dropdowns
 const iconUnlogged = document.querySelector('.icon__no-auth')
@@ -136,10 +135,13 @@ let currentUser = null
 if (localStorage.getItem('users')) {
     users = JSON.parse(localStorage.getItem('users'))
 }
+if (localStorage.getItem('currentUser')) {
+    currentUser = JSON.parse(localStorage.getItem('currentUser'));
+}
 
 registerForm.addEventListener('submit', function(event) {
     event.preventDefault()
-  
+
     const firstName = registerFormFields['first-name'].value
     const lastName = registerFormFields['last-name'].value
     const fullName = `${firstName} ${lastName}`
@@ -151,7 +153,13 @@ registerForm.addEventListener('submit', function(event) {
     let bonuses = 0
 
     //ADD VARIABLES FOR USER'S BANK INFO!!!
-  
+    const bankCardNumber = null
+    const bankCardMonth = null
+    const bankCardYear = null
+    const bankCardCvc = null
+    const bankPostalCode = null
+    const bankCity = null
+
     const user = {
         firstName,
         lastName,
@@ -161,7 +169,14 @@ registerForm.addEventListener('submit', function(event) {
         cardNumber,
         visitsCount,
         booksRent,
-        bonuses
+        bonuses,
+        bankCardNumber,
+        bankCardMonth,
+        bankCardYear,
+        bankCardCvc,
+        bankPostalCode,
+        bankCity
+
     }
 
     if (password.length < 8) {
@@ -198,11 +213,11 @@ function libraryCardToggle() {
 
 loginForm.addEventListener('submit', function(event) {
     event.preventDefault()
-    
+
     const emailLogin = loginFormFields['e-mail'].value
     const passwordLogin = loginFormFields['password'].value
-    const currentUser = users.find(user => user.email === emailLogin && user.password === passwordLogin)
-    
+    currentUser = users.find(user => user.email === emailLogin && user.password === passwordLogin)
+
     const userIcon = document.querySelectorAll('.icon__auth')
     const userFullName = document.querySelector('.user-full-name')
     const userCardNumber = document.querySelectorAll('.user-card-number')
@@ -213,7 +228,7 @@ loginForm.addEventListener('submit', function(event) {
     if (currentUser) {
         toggleModalLogIn()
         iconChange()
-        
+
         let initials = `${currentUser.firstName[0]}${currentUser.lastName[0]}`
         userIcon.forEach(element => {
             element.innerHTML = initials
@@ -232,7 +247,7 @@ loginForm.addEventListener('submit', function(event) {
             element.innerHTML = currentUser.cardNumber
         })
         userFullName.innerHTML = currentUser.fullName
-        
+
         const updatedUsers = users.map(user => user.email === currentUser.email ? currentUser : user)
         localStorage.setItem('users', JSON.stringify(updatedUsers))
         localStorage.setItem('currentUser', JSON.stringify(currentUser))
@@ -265,21 +280,49 @@ profileLinks.forEach((link) => {
 //BUY
 const modalBuy = document.querySelector('.modal__buy')
 const closeBuy = document.querySelector('.buy__close')
+const buyForm = document.getElementById('buy')
+const buyFormFields = buyForm.elements
 const buyBookBtns = document.querySelectorAll('.book-btn')
+const books = document.querySelectorAll('.book')
+const booksTitles = []
 
 function toggleModalBuy() {
     background.classList.toggle('active')
     modalBuy.classList.toggle('active')
 }
-
 closeBuy.addEventListener('click', toggleModalBuy)
 
-buyBookBtns.forEach((btn) => {
-    if (currentUser && currentUser.booksRent.length === 0) {
-        btn.addEventListener('click', toggleModalBuy())
-    }
+buyForm.addEventListener('submit', function(event) {
+    event.preventDefault()
+
+    const bankCardNumber = buyFormFields['bank-card-number'].value
+    const bankCardMonth = buyFormFields['bank-card-exp-code-month'].value
+    const bankCardYear = buyFormFields['bank-card-exp-code-year'].value
+    const bankCardCvc = buyFormFields['bank-card-cvc'].value
+    const bankPostalCode = buyFormFields['bank-postal-code'].value
+    const bankCity = buyFormFields['bank-city'].value
+
+    currentUser.bankCardNumber = bankCardNumber
+    currentUser.bankCardMonth = bankCardMonth
+    currentUser.bankCardYear = bankCardYear
+    currentUser.bankCardCvc = bankCardCvc
+    currentUser.bankPostalCode = bankPostalCode
+    currentUser.bankCity = bankCity
+
+    const updatedUsers = users.map(user => user.email === currentUser.email ? currentUser : user)
+    localStorage.setItem('users', JSON.stringify(updatedUsers))
+    localStorage.setItem('currentUser', JSON.stringify(currentUser))
+
+    alert('Purchase successful!')
+    toggleModalBuy()
 })
 
+buyBookBtns.forEach((btn) => {
+    if (currentUser && currentUser.bankCardNumber === null) {
+        btn.addEventListener('click', toggleModalBuy)
+    }
+    if (currentUser && currentUser.bankCardNumber !== null) return
+})
 
 //LOG OUT
 function loggedOut() {
