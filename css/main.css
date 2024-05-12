@@ -578,8 +578,9 @@ button:hover {
   gap: 10px;
   width: 100%;
   height: 80px;
+  list-style: inside;
   overflow: scroll;
-  list-style: circle;
+  overflow-x: hidden;
 }
 .header .authorization .modal__profile .profile__info .profile-rented .rented-list li {
   font-size: 20px;
@@ -1016,6 +1017,11 @@ button:hover {
   border-color: #BB945F;
   color: #BB945F;
 }
+.favorites .card-container .winter .book .book-btn.purchased, .favorites .card-container .spring .book .book-btn.purchased,
+.favorites .card-container .summer .book .book-btn.purchased, .favorites .card-container .autumn .book .book-btn.purchased {
+  border-color: #BB945F;
+  color: #BB945F;
+}
 .favorites .card-container .winter .book .book-image, .favorites .card-container .spring .book .book-image,
 .favorites .card-container .summer .book .book-image, .favorites .card-container .autumn .book .book-image {
   position: absolute;
@@ -1243,6 +1249,7 @@ button:hover {
 .library-card__check-form .library-card__form-input {
   border-radius: 10px;
   border: none;
+  color: #BB945F;
   font-family: "Forum", sans-serif;
   font-size: 30px;
   line-height: 50px;

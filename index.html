@@ -160,7 +160,7 @@
                         </div>
                         <div class="buy__row cvc">
                             <label for="bank-card-cvc">CVC</label>
-                            <input type="number" name="bank-card-cvc" id="bank-card-cvc" pattern="[0-9]{3}" required>
+                            <input type="number" name="bank-card-cvc" id="bank-card-cvc" pattern="[0-9]{3}" min="0" required>
                         </div>
                         <div class="buy__row second">
                             <label for="bank-card-name">Cardholder name</label>
@@ -738,7 +738,7 @@
             <div class="library-card__container">
                 <div class="library-card__check">
                     <h4 class="library-card__check-title">Find your library card</h4>
-                    <form class="library-card__check-form" action="#" method="post">
+                    <form class="library-card__check-form" action="/card-check" id="card-check">
                         <div class="library-card__form-wrapper">
                             <p>Brooklyn Public Library</p>
                             <div class="library-card__form-field">

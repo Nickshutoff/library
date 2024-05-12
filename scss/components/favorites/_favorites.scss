@@ -133,11 +133,12 @@
                         border-color: $sand;
                         color: $sand;
                     }
-                }
 
-                // .book-btn:hover {
-                //     background-color: $sand;
-                // }
+                    &.purchased {
+                        border-color: $sand;
+                        color: $sand;
+                    }
+                }
                 
                 .book-image {
                     position: absolute;

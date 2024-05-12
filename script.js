@@ -152,7 +152,6 @@ registerForm.addEventListener('submit', function(event) {
     let booksRent = []
     let bonuses = 0
 
-    //ADD VARIABLES FOR USER'S BANK INFO!!!
     const bankCardNumber = null
     const bankCardMonth = null
     const bankCardYear = null
@@ -204,12 +203,37 @@ function iconChange() {
     iconLogged.classList.toggle('logged')
 }
 
+if (!iconLogged.classList.contains('logged')) {
+    localStorage.removeItem('currentUser')
+}
+
 const libraryCardBtn = document.querySelector('.library-card__form-button')
 const libraryCardForm = document.querySelector('.library-card__form-profile')
+let libraryCardName = document.getElementById('readers-name')
+let libraryCardNumber = document.getElementById('readers-card-number')
+
 function libraryCardToggle() {
     libraryCardBtn.classList.toggle('active')
     libraryCardForm.classList.toggle('active')
+    if (currentUser && iconLogged.classList.contains('logged')) {
+        libraryCardName.value = currentUser.fullName
+        libraryCardNumber.value = currentUser.cardNumber
+        libraryCardName.setAttribute('readonly', 'readonly')
+        libraryCardNumber.setAttribute('readonly', 'readonly')
+    } else {
+        // libraryCardName.value = ''
+        // libraryCardNumber.value = ''
+        libraryCardName.removeAttribute('readonly')
+        libraryCardNumber.removeAttribute('readonly')
+    }
 }
+
+const userIcon = document.querySelectorAll('.icon__auth')
+const userFullName = document.querySelector('.user-full-name')
+const userCardNumber = document.querySelectorAll('.user-card-number')
+const userVisitsCount = document.querySelectorAll('.user-visits-counter')
+const userBonusesCount = document.querySelectorAll('.user-bonuses-counter')
+const userBooksCount = document.querySelectorAll('.user-books-counter')
 
 loginForm.addEventListener('submit', function(event) {
     event.preventDefault()
@@ -217,13 +241,6 @@ loginForm.addEventListener('submit', function(event) {
     const emailLogin = loginFormFields['e-mail'].value
     const passwordLogin = loginFormFields['password'].value
     currentUser = users.find(user => user.email === emailLogin && user.password === passwordLogin)
-
-    const userIcon = document.querySelectorAll('.icon__auth')
-    const userFullName = document.querySelector('.user-full-name')
-    const userCardNumber = document.querySelectorAll('.user-card-number')
-    const userVisitsCount = document.querySelectorAll('.user-visits-counter')
-    const userBonusesCount = document.querySelectorAll('.user-bonuses-counter')
-    const userBooksCount = document.querySelectorAll('.user-books-counter')
 
     if (currentUser) {
         toggleModalLogIn()
@@ -245,6 +262,9 @@ loginForm.addEventListener('submit', function(event) {
         })
         userCardNumber.forEach(element => {
             element.innerHTML = currentUser.cardNumber
+            if (element.closest('.profile__auth')) {
+                element.style.fontSize = '12px'
+            }
         })
         userFullName.innerHTML = currentUser.fullName
 
@@ -255,6 +275,8 @@ loginForm.addEventListener('submit', function(event) {
         changeLibrarycardsLinks(registerLinks)
         changeLibrarycardsLinks(profileLinks)
         changeLibrarycardsLinks(logInLinks)
+        updateBuyButtons()
+        updateRentedList()
         alert('Login successful!')
     } else {
         alert('Invalid e-mail or password!')
@@ -284,7 +306,13 @@ const buyForm = document.getElementById('buy')
 const buyFormFields = buyForm.elements
 const buyBookBtns = document.querySelectorAll('.book-btn')
 const books = document.querySelectorAll('.book')
-const booksTitles = []
+
+const booksInfo = []
+books.forEach((book) => {
+    const title = book.querySelector('.book-title h5').textContent
+    const author = book.querySelector('.book-title h6').textContent.replace('By ', '')
+    booksInfo.push({ title, author})
+})
 
 function toggleModalBuy() {
     background.classList.toggle('active')
@@ -317,11 +345,79 @@ buyForm.addEventListener('submit', function(event) {
     toggleModalBuy()
 })
 
-buyBookBtns.forEach((btn) => {
-    if (currentUser && currentUser.bankCardNumber === null) {
-        btn.addEventListener('click', toggleModalBuy)
+buyBookBtns.forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+        if (currentUser && currentUser.bankCardNumber === null) {
+            toggleModalBuy()
+        } else if (currentUser && currentUser.bankCardNumber !== null) {
+            if (!currentUser.booksRent.includes(index)) {
+                currentUser.booksRent.push(index)
+                btn.textContent = 'Own'
+                btn.classList.add('purchased')
+                updateRentedList()
+                const updatedUsers = users.map(user => user.email === currentUser.email ? currentUser : user)
+                localStorage.setItem('users', JSON.stringify(updatedUsers))
+                localStorage.setItem('currentUser', JSON.stringify(currentUser))
+            }
+        }
+    })
+})
+
+function updateBuyButtons() {
+    buyBookBtns.forEach((btn, index) => {
+        if (currentUser && currentUser.booksRent.includes(index)) {
+            btn.textContent = 'Own'
+            btn.classList.add('purchased')
+        } else {
+            btn.textContent = 'Buy'
+            btn.classList.remove('purchased')
+        }
+    })
+}
+
+function updateRentedList() {
+    const rentedList = document.querySelector('.rented-list')
+    rentedList.innerHTML = ''
+  
+    if (currentUser && currentUser.booksRent.length > 0) {
+        currentUser.booksRent.forEach((index) => {
+            const listItem = document.createElement('li')
+            listItem.textContent = `${booksInfo[index].title}, ${booksInfo[index].author}`
+            rentedList.appendChild(listItem)
+        })
     }
-    if (currentUser && currentUser.bankCardNumber !== null) return
+}
+
+//LIBRARY CARD CHECK
+const cardCheckForm = document.getElementById('card-check')
+const cardCheckFormFields = cardCheckForm.elements
+
+cardCheckForm.addEventListener('submit', function(event) {
+    event.preventDefault()
+
+    const readersCardFullname = cardCheckFormFields['readers-name'].value
+    const readersCardNumber = cardCheckFormFields['readers-card-number'].value
+    const user = users.find(user => user.fullName === readersCardFullname && user.cardNumber === readersCardNumber)
+
+    if (user) {
+        libraryCardName.value = user.fullName
+        libraryCardNumber.value = user.cardNumber
+        libraryCardName.setAttribute('readonly', 'readonly')
+        libraryCardNumber.setAttribute('readonly', 'readonly')
+        libraryCardBtn.classList.toggle('active')
+        libraryCardForm.classList.toggle('active')
+        userVisitsCount.forEach(element => {
+            element.innerHTML = user.visitsCount
+        })
+        userBonusesCount.forEach(element => {
+            element.innerHTML = user.bonuses
+        })
+        userBooksCount.forEach(element => {
+            element.innerHTML = user.booksRent.length
+        })
+    } else {
+        alert('Card not found')
+    }
 })
 
 //LOG OUT
@@ -345,13 +441,16 @@ logOutLinks.forEach((link) => {
     link.addEventListener('click', () => {
         loggedOut()
         localStorage.removeItem('currentUser')
+        currentUser = null
         changeLibrarycardsLinks(registerLinks)
         changeLibrarycardsLinks(profileLinks)
         changeLibrarycardsLinks(logInLinks)
         libraryCardToggle()
+        updateBuyButtons()
         if (modalAuth.classList.contains('active')){
             toggleAuthMenu()
         }
+        
         alert('Logged out')
     })
 })
