@@ -221,13 +221,11 @@ function libraryCardToggle() {
         libraryCardName.setAttribute('readonly', 'readonly')
         libraryCardNumber.setAttribute('readonly', 'readonly')
     } else {
-        // libraryCardName.value = ''
-        // libraryCardNumber.value = ''
         libraryCardName.removeAttribute('readonly')
         libraryCardNumber.removeAttribute('readonly')
     }
 }
-
+ 
 const userIcon = document.querySelectorAll('.icon__auth')
 const userFullName = document.querySelector('.user-full-name')
 const userCardNumber = document.querySelectorAll('.user-card-number')
@@ -240,7 +238,7 @@ loginForm.addEventListener('submit', function(event) {
 
     const emailLogin = loginFormFields['e-mail'].value
     const passwordLogin = loginFormFields['password'].value
-    currentUser = users.find(user => user.email === emailLogin && user.password === passwordLogin)
+    currentUser = users.find(user => user.email === emailLogin || user.cardNumber === emailLogin && user.password === passwordLogin)
 
     if (currentUser) {
         toggleModalLogIn()
@@ -287,6 +285,12 @@ loginForm.addEventListener('submit', function(event) {
 //PROFILE
 const modalProfile = document.querySelector('.modal__profile')
 const closeProfile = document.querySelector('.profile__close')
+const copyCardNumberIcon = document.getElementById('copyCardNumber')
+
+copyCardNumberIcon.addEventListener('click', () => {
+    navigator.clipboard.writeText(currentUser.cardNumber)
+    alert('Copied to clipboard')
+})
 
 function toggleModalProfile() {
     background.classList.toggle('active')
@@ -399,7 +403,7 @@ cardCheckForm.addEventListener('submit', function(event) {
     const readersCardNumber = cardCheckFormFields['readers-card-number'].value
     const user = users.find(user => user.fullName === readersCardFullname && user.cardNumber === readersCardNumber)
 
-    if (user) {
+    if (user && !iconLogged.classList.contains('logged')) {
         libraryCardName.value = user.fullName
         libraryCardNumber.value = user.cardNumber
         libraryCardName.setAttribute('readonly', 'readonly')
@@ -415,6 +419,12 @@ cardCheckForm.addEventListener('submit', function(event) {
         userBooksCount.forEach(element => {
             element.innerHTML = user.booksRent.length
         })
+        setTimeout(() => {
+            libraryCardName.removeAttribute('readonly')
+            libraryCardNumber.removeAttribute('readonly')
+            libraryCardBtn.classList.toggle('active')
+            libraryCardForm.classList.toggle('active')
+        }, 15000)
     } else {
         alert('Card not found')
     }
@@ -446,6 +456,8 @@ logOutLinks.forEach((link) => {
         changeLibrarycardsLinks(profileLinks)
         changeLibrarycardsLinks(logInLinks)
         libraryCardToggle()
+        libraryCardName.value = ''
+        libraryCardNumber.value = ''
         updateBuyButtons()
         if (modalAuth.classList.contains('active')){
             toggleAuthMenu()

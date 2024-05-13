@@ -121,6 +121,7 @@ button:hover {
   padding: 20px;
   display: flex;
   justify-content: space-between;
+  position: relative;
   line-height: 50px;
   background-color: #0C0C0E;
   color: #FFFFFF;
